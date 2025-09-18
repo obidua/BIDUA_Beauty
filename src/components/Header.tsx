@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ShoppingCart, Menu, X, User, LogOut } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
-  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { getTotalItems } = useCart();
@@ -42,37 +39,34 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#hero" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.home')}</a>
-            <a href="#benefits" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.benefits')}</a>
-            <a href="#ingredients" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.ingredients')}</a>
-            <a href="#product-details" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.details')}</a>
-            <a href="#testimonials" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.reviews')}</a>
+            <a href="#hero" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">Home</a>
+            <a href="#benefits" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">Benefits</a>
+            <a href="#ingredients" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">Ingredients</a>
+            <a href="#product-details" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">Details</a>
+            <a href="#testimonials" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">Reviews</a>
             {isLoggedIn && (
               <>
-                <Link to="/join-brpp" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.joinBrpp')}</Link>
-                <Link to="/b2b-catalog" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.b2bCatalog')}</Link>
-                <Link to="/partner-wallet" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">{t('navigation.partnerWallet')}</Link>
+                <Link to="/join-brpp" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">Join BRPP</Link>
+                <Link to="/b2b-catalog" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">B2B Catalog</Link>
+                <Link to="/partner-wallet" className="text-white hover:text-amber-400 transition-colors duration-300 text-sm lg:text-base">Partner Wallet</Link>
               </>
             )}
           </nav>
 
           <div className="flex items-center space-x-4">
-            <div className="hidden md:block">
-              <LanguageSwitcher />
-            </div>
             {isLoggedIn ? (
               <>
                 <Link 
                   to="/user-profile" 
                   className="relative text-white hover:text-amber-400 transition-colors duration-300"
-                  title={t('userProfile.title')}
+                  title="User Profile"
                 >
                   <User size={24} />
                 </Link>
                 <button 
                   onClick={handleLogout}
                   className="relative text-white hover:text-amber-400 transition-colors duration-300"
-                  title={t('common.logout')}
+                  title="Logout"
                 >
                   <LogOut size={24} />
                 </button>
@@ -81,7 +75,7 @@ const Header = () => {
               <Link 
                 to="/login" 
                 className="relative text-white hover:text-amber-400 transition-colors duration-300"
-                title={t('login.title')}
+                title="Login"
               >
                 <User size={24} />
               </Link>
@@ -89,7 +83,7 @@ const Header = () => {
             <Link 
               to="/cart" 
               className="relative text-white hover:text-amber-400 transition-colors duration-300"
-              title={t('cart.title')}
+              title="Shopping Cart"
             >
               <ShoppingCart size={24} />
               {getTotalItems() > 0 && (
@@ -111,30 +105,27 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-4 py-4 border-t border-gray-700 bg-black/95 backdrop-blur-lg rounded-lg mx-4">
             <div className="flex flex-col space-y-4 px-4">
-              <div className="pb-4 border-b border-gray-700">
-                <LanguageSwitcher />
-              </div>
-              <a href="#hero" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.home')}</a>
-              <a href="#benefits" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.benefits')}</a>
-              <a href="#ingredients" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.ingredients')}</a>
-              <a href="#product-details" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.details')}</a>
-              <a href="#testimonials" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.reviews')}</a>
+              <a href="#hero" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+              <a href="#benefits" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Benefits</a>
+              <a href="#ingredients" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Ingredients</a>
+              <a href="#product-details" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Details</a>
+              <a href="#testimonials" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Reviews</a>
               {isLoggedIn && (
                 <>
-                  <Link to="/join-brpp" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.joinBrpp')}</Link>
-                  <Link to="/b2b-catalog" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.b2bCatalog')}</Link>
-                  <Link to="/partner-wallet" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('navigation.partnerWallet')}</Link>
+                  <Link to="/join-brpp" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Join BRPP</Link>
+                  <Link to="/b2b-catalog" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>B2B Catalog</Link>
+                  <Link to="/partner-wallet" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Partner Wallet</Link>
                 </>
               )}
               {isLoggedIn ? (
                 <>
-                  <Link to="/user-profile" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('userProfile.title')}</Link>
-                  <button onClick={handleLogout} className="w-full text-left text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg">{t('common.logout')}</button>
+                  <Link to="/user-profile" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>User Profile</Link>
+                  <button onClick={handleLogout} className="w-full text-left text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg">Logout</button>
                 </>
               ) : (
                 <>
-                  <Link to="/login" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('login.title')}</Link>
-                  <Link to="/signup" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>{t('signup.title')}</Link>
+                  <Link to="/login" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
+                  <Link to="/signup" className="text-white hover:text-amber-400 transition-colors duration-300 py-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Sign Up</Link>
                 </>
               )}
             </div>

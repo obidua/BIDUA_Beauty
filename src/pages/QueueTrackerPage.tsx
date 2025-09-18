@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ListOrdered, Package, CheckCircle, Clock, User, LogIn } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -39,7 +38,6 @@ const simulatedQueuedOrders = [
 ];
 
 const QueueTrackerPage = () => {
-  const { t } = useTranslation();
   const { isLoggedIn, user } = useAuth();
 
   // Filter queued orders for the current logged-in user
@@ -55,20 +53,20 @@ const QueueTrackerPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4 py-16">
         <div className="text-center max-w-md">
           <LogIn className="w-24 h-24 text-gray-600 mx-auto mb-8" />
-          <h1 className="text-4xl font-bold text-white mb-4">{t('queueTracker.loginRequired.title')}</h1>
-          <p className="text-gray-400 mb-8 text-lg">{t('queueTracker.loginRequired.subtitle')}</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Login Required</h1>
+          <p className="text-gray-400 mb-8 text-lg">Please log in or sign up to view the Queue Tracker.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               to="/login" 
               className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
             >
-              {t('login.loginButton')}
+              Login
             </Link>
             <Link 
               to="/signup" 
               className="border-2 border-amber-400/50 text-amber-400 px-8 py-4 rounded-full font-bold text-lg hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
             >
-              {t('signup.signupButton')}
+              Sign Up
             </Link>
           </div>
         </div>
@@ -91,7 +89,7 @@ const QueueTrackerPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('common.backToHome')}</span>
+          <span>Back to Home</span>
         </Link>
 
         {/* Page Header */}
@@ -100,10 +98,10 @@ const QueueTrackerPage = () => {
             <ListOrdered className="w-10 h-10 text-black" />
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            {t('queueTracker.title')}
+            Stock & Queue Tracker
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            {t('queueTracker.subtitle')}
+            Monitor global stock movement and your position in the allocation queue.
           </p>
         </div>
 
@@ -111,13 +109,13 @@ const QueueTrackerPage = () => {
         <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 lg:p-8 mb-12">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Package className="w-6 h-6 mr-3 text-amber-400" />
-            {t('queueTracker.globalStockStatus')}
+            Global Stock Status
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                 <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
-                {t('queueTracker.soldStock')} ({soldStock.length})
+                Recently Sold Stock ({soldStock.length})
               </h3>
               <div className="max-h-60 overflow-y-auto pr-2">
                 {soldStock.length > 0 ? (
@@ -130,14 +128,14 @@ const QueueTrackerPage = () => {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-gray-400">{t('queueTracker.noSoldStock')}</p>
+                  <p className="text-gray-400">No stock sold recently.</p>
                 )}
               </div>
             </div>
             <div>
               <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                 <Clock className="w-5 h-5 mr-2 text-blue-400" />
-                {t('queueTracker.availableStock')} ({availableStock.length})
+                Available Stock for Allocation ({availableStock.length})
               </h3>
               <div className="max-h-60 overflow-y-auto pr-2">
                 {availableStock.length > 0 ? (
@@ -145,12 +143,12 @@ const QueueTrackerPage = () => {
                     {availableStock.map((item, index) => (
                       <li key={index} className="flex justify-between items-center bg-gray-900/50 p-3 rounded-lg border border-gray-700/50">
                         <span>{item.sku} - <span className="font-bold text-white">{item.serial}</span></span>
-                        <span className="text-sm text-blue-400">{t('queueTracker.readyForAllocation')}</span>
+                        <span className="text-sm text-blue-400">Ready for Allocation</span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-gray-400">{t('queueTracker.noAvailableStock')}</p>
+                  <p className="text-gray-400">No stock currently available for allocation.</p>
                 )}
               </div>
             </div>
@@ -161,20 +159,20 @@ const QueueTrackerPage = () => {
         <div className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border border-amber-400/30 rounded-3xl p-6 lg:p-8">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <User className="w-6 h-6 mr-3 text-amber-400" />
-            {t('queueTracker.yourQueuedOrders')}
+            Your Queued Orders
           </h2>
           {userQueuedOrders.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-700">
                 <thead>
                   <tr>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('queueTracker.table.orderId')}</th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('queueTracker.table.sku')}</th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('queueTracker.table.quantity')}</th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('queueTracker.table.serialRange')}</th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('queueTracker.table.status')}</th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('queueTracker.table.yourPosition')}</th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('queueTracker.table.estimatedDelivery')}</th>
+                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Order ID</th>
+                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Product SKU</th>
+                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Quantity</th>
+                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Serial Range</th>
+                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
+                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Your Position</th>
+                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Est. Delivery</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-800">
@@ -190,7 +188,7 @@ const QueueTrackerPage = () => {
                           order.status === 'allocated' ? 'bg-blue-100 text-blue-800' :
                           'bg-green-100 text-green-800'
                         }`}>
-                          {t(`queueTracker.status.${order.status}`)}
+                          {order.status === 'pending' ? 'Pending' : order.status === 'allocated' ? 'Allocated' : 'Shipped'}
                         </span>
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-white font-bold">#{order.position}</td>
@@ -203,12 +201,12 @@ const QueueTrackerPage = () => {
           ) : (
             <div className="text-center py-12">
               <Package className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <p className="text-gray-400 text-lg">{t('queueTracker.noQueuedOrders')}</p>
+              <p className="text-gray-400 text-lg">You currently have no queued orders.</p>
               <Link 
                 to="/b2b-catalog" 
                 className="inline-block mt-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-6 py-3 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105"
               >
-                {t('queueTracker.browseB2bCatalog')}
+                Browse B2B Catalog
               </Link>
             </div>
           )}
@@ -216,12 +214,12 @@ const QueueTrackerPage = () => {
 
         {/* Queue Information */}
         <div className="mt-12 bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 lg:p-8">
-          <h3 className="text-xl font-bold text-white mb-4">{t('queueTracker.howQueueWorks.title')}</h3>
+          <h3 className="text-xl font-bold text-white mb-4">How the Queue System Works</h3>
           <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
-            <p><strong className="text-amber-400">FIFO System:</strong> {t('queueTracker.howQueueWorks.fifo')}</p>
-            <p><strong className="text-amber-400">Serial Allocation:</strong> {t('queueTracker.howQueueWorks.serialAllocation')}</p>
-            <p><strong className="text-amber-400">B2C Sales Impact:</strong> {t('queueTracker.howQueueWorks.b2cImpact')}</p>
-            <p><strong className="text-amber-400">Profit Sharing:</strong> {t('queueTracker.howQueueWorks.profitSharing')}</p>
+            <p><strong className="text-amber-400">FIFO System:</strong> Stock is allocated on a First-In-First-Out basis. Earlier orders get priority.</p>
+            <p><strong className="text-amber-400">Serial Allocation:</strong> Each product has a unique serial number. Your order is assigned specific serial ranges.</p>
+            <p><strong className="text-amber-400">B2C Sales Impact:</strong> When B2C customers buy products with your allocated serials, you earn profit share.</p>
+            <p><strong className="text-amber-400">Profit Sharing:</strong> You receive 60% of profit + full cost reimbursement when your serials are sold.</p>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ShoppingCart, Shield, Truck, RotateCcw } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { PRODUCT_IMAGES } from '../data/productImages';
@@ -12,7 +11,6 @@ const features = [
 ];
 
 const CTA = () => {
-  const { t } = useTranslation();
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
@@ -45,16 +43,16 @@ const CTA = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6">
-            {t('cta.title')}
+            Transform Your Skin Today
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 mb-6 lg:mb-8 max-w-2xl mx-auto px-4">{t('cta.subtitle')}</p>
+          <p className="text-lg sm:text-xl text-gray-300 mb-6 lg:mb-8 max-w-2xl mx-auto px-4">Apply as normal cream during the day, and a thicker layer overnight for best results. See remarkable transformation in 15 days. Join 5000+ satisfied customers worldwide.</p>
 
           {/* Pricing */}
           <div className="bg-white/5 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 lg:p-8 mb-6 lg:mb-8 max-w-sm sm:max-w-md mx-auto">
             <div className="text-center">
-              <span className="text-gray-400 text-base sm:text-lg line-through">{t('cta.originalPrice')}</span>
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-2">{t('cta.currentPrice')}</div>
-              <p className="text-sm sm:text-base text-gray-300">{t('cta.specialOffer')}</p>
+              <span className="text-gray-400 text-base sm:text-lg line-through">₹4,999</span>
+              <div className="text-4xl sm:text-5xl font-bold text-white mb-2">₹1,499</div>
+              <p className="text-sm sm:text-base text-gray-300">Pre-Launch Special Offer</p>
             </div>
           </div>
 
@@ -64,7 +62,7 @@ const CTA = () => {
             className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 sm:px-12 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105 shadow-2xl mb-6 lg:mb-8 flex items-center space-x-2 sm:space-x-3 mx-auto"
           >
             <ShoppingCart size={20} className="sm:w-6 sm:h-6" />
-            <span>{t('cta.orderButton')}</span>
+            <span>Order Now - Fast Delivery</span>
           </button>
 
           {/* Features */}
@@ -78,7 +76,7 @@ const CTA = () => {
                 >
                   <Icon size={20} className="sm:w-6 sm:h-6 flex-shrink-0" />
                   <span className="font-medium text-sm sm:text-base text-center">
-                    {t(`cta.feature${index + 1}`)}
+                    {feature.text}
                   </span>
                 </div>
               );

@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Droplets, FlaskRound as Flask, Flower, Sun, Nut, Candy as Candle, Leaf, Sparkles } from 'lucide-react';
 import ProductImageSlider from './ProductImageSlider';
 import { PRODUCT_IMAGES, PRODUCT_ALT_TEXT } from '../data/productImages';
@@ -78,8 +77,6 @@ const ingredients = [
 ];
 
 const Ingredients = () => {
-  const { t } = useTranslation();
-  
   return (
     <section 
       id="ingredients" 
@@ -95,9 +92,9 @@ const Ingredients = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6">
-            {t('ingredients.title')} <span className="gradient-text">{t('ingredients.premium')}</span>
+            Premium <span className="gradient-text">Ingredients</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">{t('ingredients.subtitle')}</p>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">Each ingredient is carefully selected and sourced from the finest suppliers worldwide</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -114,8 +111,8 @@ const Ingredients = () => {
                     <Icon size={20} className="sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 lg:mb-3">{t(`ingredients.ingredient${index + 1}.name`)}</h3>
-                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{t(`ingredients.ingredient${index + 1}.description`)}</p>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 lg:mb-3">{ingredient.name}</h3>
+                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{ingredient.description}</p>
                   </div>
                 </div>
               );

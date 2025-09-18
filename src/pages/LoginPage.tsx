@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Lock, User, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const LoginPage = () => {
-  const { t } = useTranslation();
   const [emailOrPhone, setEmailOrPhone] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -18,10 +16,10 @@ const LoginPage = () => {
     setError('');
     // Static login logic: username '1234', password '1234'
     if (login(emailOrPhone, password)) {
-      alert(t('login.successMessage'));
+      alert('Login successful!');
       navigate('/'); // Redirect to home on successful login
     } else {
-      setError(t('login.invalidCredentials'));
+      setError('Invalid credentials. Please try again.');
     }
   };
 
@@ -40,7 +38,7 @@ const LoginPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-8 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('common.backToHome')}</span>
+          <span>Back to Home</span>
         </Link>
 
         {/* Login Card */}
@@ -51,10 +49,10 @@ const LoginPage = () => {
               <User className="w-8 h-8 text-black" />
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">
-              {t('login.title')}
+              Login to Your Account
             </h1>
             <p className="text-gray-400 text-sm">
-              {t('login.subtitle')}
+              Access your personalized dashboard and BRPP features
             </p>
           </div>
 
@@ -63,7 +61,7 @@ const LoginPage = () => {
             {/* Email or Phone Field */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('login.emailOrPhone')}
+                Email or Phone Number
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -72,7 +70,7 @@ const LoginPage = () => {
                   value={emailOrPhone}
                   onChange={(e) => setEmailOrPhone(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-4 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('login.enterEmailOrPhone')}
+                  placeholder="Enter your email or phone"
                   required
                 />
               </div>
@@ -81,7 +79,7 @@ const LoginPage = () => {
             {/* Password Field */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('login.password')}
+                Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -90,7 +88,7 @@ const LoginPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-12 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('login.enterPassword')}
+                  placeholder="Enter your password"
                   required
                 />
                 <button
@@ -114,24 +112,24 @@ const LoginPage = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105"
             >
-              {t('login.loginButton')}
+              Login
             </button>
           </form>
 
           {/* Demo Credentials Note */}
           <div className="mt-6 bg-amber-400/10 border border-amber-400/20 rounded-2xl p-4 text-center">
-            <p className="text-amber-400 text-sm font-medium mb-2">{t('costCalculator.demoCredentials')}</p>
+            <p className="text-amber-400 text-sm font-medium mb-2">Demo Credentials</p>
             <p className="text-gray-300 text-xs">
-              {t('login.demoUser')}: <span className="font-mono bg-black/30 px-2 py-1 rounded">1234</span>
+              User ID: <span className="font-mono bg-black/30 px-2 py-1 rounded">1234</span>
               <br />
-              {t('login.demoPassword')}: <span className="font-mono bg-black/30 px-2 py-1 rounded">1234</span>
+              Password: <span className="font-mono bg-black/30 px-2 py-1 rounded">1234</span>
             </p>
           </div>
 
           {/* Signup Link */}
           <div className="mt-6 text-center">
             <p className="text-gray-400 text-sm">
-              {t('login.noAccount')} <Link to="/signup" className="text-amber-400 hover:underline">{t('login.signupLink')}</Link>
+              Don't have an account? <Link to="/signup" className="text-amber-400 hover:underline">Sign Up</Link>
             </p>
           </div>
         </div>

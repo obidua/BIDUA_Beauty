@@ -1,28 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Priya Sharma",
     age: 34,
-    location: "New York, USA",
+    location: "Mumbai, India",
     rating: 5,
-    text: "I've tried countless face creams, but nothing compares to LuxeGlow. The saffron oil formula completely eliminated my dark circles in 30 days!",
+    text: "I've tried countless face creams, but nothing compares to BIDUA Radiance 15. The saffron oil formula completely eliminated my dark circles in 30 days!",
     image: "https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
   },
   {
-    name: "Maria Rodriguez",
+    name: "Anjali Patel",
     age: 42,
-    location: "Los Angeles, USA",
+    location: "Delhi, India",
     rating: 5,
     text: "The natural ingredients work amazingly! My husband and I both use it. Even helped with my baby's diaper rash - so gentle and effective!",
     image: "https://images.pexels.com/photos/3812944/pexels-photo-3812944.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
   },
   {
-    name: "Emma Thompson",
+    name: "Kavya Reddy",
     age: 38,
-    location: "London, UK",
+    location: "Bangalore, India",
     rating: 5,
     text: "100% recovery on my dark spots! I apply it thick at night as recommended and the fairness results are unbeatable. Worth every penny!",
     image: "https://images.pexels.com/photos/3823489/pexels-photo-3823489.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
@@ -30,8 +29,6 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const { t } = useTranslation();
-  
   return (
     <section 
       id="testimonials" 
@@ -46,9 +43,9 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6">
-            {t('testimonials.title')} <span className="gradient-text">{t('testimonials.customers')}</span>
+            What Our <span className="gradient-text">Customers Say</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">{t('testimonials.subtitle')}</p>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">Join thousands of satisfied customers who've transformed their skin with BIDUA Beauty</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -71,8 +68,8 @@ const Testimonials = () => {
                     />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-base sm:text-lg">{t(`testimonials.testimonial${index + 1}.name`)}</h3>
-                    <p className="text-gray-400 text-xs sm:text-sm">{t('testimonials.age')} {t(`testimonials.testimonial${index + 1}.age`)} • {t(`testimonials.testimonial${index + 1}.location`)}</p>
+                    <h3 className="text-white font-bold text-base sm:text-lg">{testimonial.name}</h3>
+                    <p className="text-gray-400 text-xs sm:text-sm">Age {testimonial.age} • {testimonial.location}</p>
                   </div>
                 </div>
 
@@ -85,7 +82,7 @@ const Testimonials = () => {
 
                 {/* Testimonial Text */}
                 <p className="text-sm sm:text-base text-gray-300 leading-relaxed italic">
-                  "{t(`testimonials.testimonial${index + 1}.text`)}"
+                  "{testimonial.text}"
                 </p>
 
                 {/* Glow Effect */}
@@ -102,8 +99,8 @@ const Testimonials = () => {
                 <Star key={i} size={20} className="sm:w-6 sm:h-6 text-amber-400 fill-current" />
               ))}
             </div>
-            <span className="text-white text-base sm:text-lg font-semibold">{t('testimonials.averageRating')}</span>
-            <span className="text-gray-300 text-sm sm:text-base">{t('testimonials.fromReviews')}</span>
+            <span className="text-white text-base sm:text-lg font-semibold">4.9/5 Average Rating</span>
+            <span className="text-gray-300 text-sm sm:text-base">from 5,000+ reviews</span>
           </div>
         </div>
       </div>

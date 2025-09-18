@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sparkles, Sun, Moon, Baby, Clock, Shield, Users, HelpCircle, ChevronDown, ChevronUp, ShoppingCart } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { useCart } from '../context/CartContext';
 import { PRODUCT_IMAGES } from '../data/productImages';
 
 const ProductDetails = () => {
-  const { t } = useTranslation();
   const { addToCart } = useCart();
   const navigate = useNavigate();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -134,20 +132,20 @@ const ProductDetails = () => {
         {/* Introduction */}
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            {t('productDetails.naturalGlowCream.natural')} <span className="gradient-text">{t('productDetails.naturalGlowCream.glow')}</span> {t('productDetails.naturalGlowCream.cream')}
+            Natural <span className="gradient-text">Glow</span> Cream
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
-            {t('productDetails.introduction.description')}
+            Healthy, radiant skin is not just about beauty — it's about confidence and self-care. Our BIDUA Radiance 15, enriched with the power of Saffron Oil, Vitamins, Essential Oils, and Natural Exfoliants, is designed to nourish, protect, and restore your skin day and night.
           </p>
           <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto mt-4 px-4">
-            {t('productDetails.introduction.benefits')}
+            From reducing dark spots, sunburn marks, fine lines, and under-eye darkness to being gentle enough for baby rashes, this is more than a cream — it's a complete skincare solution trusted by tradition and perfected with modern formulation.
           </p>
         </div>
 
         {/* What Makes Our Cream Unique */}
         <div className="mb-16 lg:mb-20">
           <h3 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
-            {t('productDetails.uniqueFeatures.title')} <span className="gradient-text">{t('productDetails.uniqueFeatures.unique')}</span>
+            What Makes Our Cream <span className="gradient-text">Unique?</span>
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {uniqueFeatures.map((feature, index) => {
@@ -161,10 +159,10 @@ const ProductDetails = () => {
                     <Icon size={20} className="sm:w-7 sm:h-7 text-black" />
                   </div>
                   <h4 className="text-xl sm:text-2xl font-bold text-white mb-3 lg:mb-4 group-hover:text-amber-400 transition-colors duration-300">
-                    {t(`productDetails.uniqueFeatures.feature${index + 1}.title`)}
+                    {feature.title}
                   </h4>
                   <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                    {t(`productDetails.uniqueFeatures.feature${index + 1}.description`)}
+                    {feature.description}
                   </p>
                 </div>
               );
@@ -175,7 +173,7 @@ const ProductDetails = () => {
         {/* How to Use */}
         <div className="mb-16 lg:mb-20">
           <h3 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
-            {t('productDetails.howToUse.title')} <span className="gradient-text">{t('productDetails.howToUse.use')}</span>
+            How to <span className="gradient-text">Use</span>
           </h3>
           <div className="grid lg:grid-cols-3 gap-8">
             {usageSteps.map((usage, index) => {
@@ -189,19 +187,17 @@ const ProductDetails = () => {
                     <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl flex items-center justify-center mr-4">
                       <Icon size={20} className="sm:w-7 sm:h-7 text-black" />
                     </div>
-                    <h4 className="text-lg sm:text-xl font-bold text-white">{t(`productDetails.howToUse.usage${index + 1}.title`)}</h4>
+                    <h4 className="text-lg sm:text-xl font-bold text-white">{usage.title}</h4>
                   </div>
                   <ol className="space-y-3">
-                    {Array.isArray(t(`productDetails.howToUse.usage${index + 1}.steps`, { returnObjects: true })) ? 
-                      t(`productDetails.howToUse.usage${index + 1}.steps`, { returnObjects: true }).map((step, stepIndex) => (
+                    {usage.steps.map((step, stepIndex) => (
                       <li key={stepIndex} className="flex items-start">
                         <span className="bg-amber-400 text-black rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
                           {stepIndex + 1}
                         </span>
                         <span className="text-gray-300 text-sm sm:text-base">{step}</span>
                       </li>
-                      )) : []
-                    }
+                    ))}
                   </ol>
                 </div>
               );
@@ -213,23 +209,21 @@ const ProductDetails = () => {
         <div className="mb-16 lg:mb-20">
           <div className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border border-amber-400/30 rounded-3xl p-8 lg:p-12">
             <h3 className="text-3xl sm:text-4xl font-bold text-white text-center mb-8">
-              {t('productDetails.whyItWorks.title')} <span className="gradient-text">{t('productDetails.whyItWorks.works')}</span>
+              Why It <span className="gradient-text">Works</span>
             </h3>
             <p className="text-lg sm:text-xl text-gray-300 text-center mb-8 max-w-3xl mx-auto">
-              {t('productDetails.whyItWorks.description')}
+              Your skin repairs itself naturally at night. Our cream supports this process by:
             </p>
             <div className="grid sm:grid-cols-2 gap-4 lg:gap-6 mb-8">
-              {Array.isArray(t('productDetails.whyItWorks.reasons', { returnObjects: true })) ? 
-                t('productDetails.whyItWorks.reasons', { returnObjects: true }).map((reason, index) => (
+              {whyItWorks.map((reason, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <Shield className="w-6 h-6 text-amber-400 flex-shrink-0" />
                   <span className="text-gray-300 text-sm sm:text-base">{reason}</span>
                 </div>
-                )) : []
-              }
+              ))}
             </div>
             <p className="text-center text-amber-400 font-bold text-lg sm:text-xl">
-              {t('productDetails.whyItWorks.conclusion')}
+              That's why results are visible in just 15–30 days.
             </p>
           </div>
         </div>
@@ -237,18 +231,16 @@ const ProductDetails = () => {
         {/* Who Can Use It */}
         <div className="mb-16 lg:mb-20">
           <h3 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
-            {t('productDetails.whoCanUse.title')} <span className="gradient-text">{t('productDetails.whoCanUse.use')}</span>
+            Who Can <span className="gradient-text">Use It?</span>
           </h3>
           <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 lg:p-12">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {Array.isArray(t('productDetails.whoCanUse.users', { returnObjects: true })) ? 
-                t('productDetails.whoCanUse.users', { returnObjects: true }).map((user, index) => (
+              {whoCanUse.map((user, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <Users className="w-6 h-6 text-amber-400 flex-shrink-0" />
                   <span className="text-gray-300 text-sm sm:text-base font-medium">{user}</span>
                 </div>
-                )) : []
-              }
+              ))}
             </div>
           </div>
         </div>
@@ -256,11 +248,10 @@ const ProductDetails = () => {
         {/* FAQs */}
         <div className="mb-16 lg:mb-20">
           <h3 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
-            {t('productDetails.faqs.title')} <span className="gradient-text">{t('productDetails.faqs.questions')}</span>
+            Frequently Asked <span className="gradient-text">Questions</span>
           </h3>
           <div className="max-w-4xl mx-auto space-y-4">
-            {Array.isArray(t('productDetails.faqs.items', { returnObjects: true })) ? 
-              t('productDetails.faqs.items', { returnObjects: true }).map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div
                 key={index}
                 className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden"
@@ -287,8 +278,7 @@ const ProductDetails = () => {
                   </div>
                 )}
               </div>
-              )) : []
-            }
+            ))}
           </div>
         </div>
 
@@ -296,10 +286,10 @@ const ProductDetails = () => {
         <div className="text-center">
           <div className="bg-gradient-to-br from-amber-400/20 to-yellow-500/20 border border-amber-400/30 rounded-3xl p-8 lg:p-12 max-w-4xl mx-auto">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              {t('productDetails.finalCTA.title')} <span className="gradient-text">{t('productDetails.finalCTA.journey')}</span> {t('productDetails.finalCTA.today')}
+              Don't wait for flawless skin — start your <span className="gradient-text">15-day glow journey</span> today!
             </h3>
             <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              {t('productDetails.finalCTA.description')}
+              Join thousands of satisfied customers who've transformed their skin with our Natural Glow Cream.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <button 
@@ -307,7 +297,7 @@ const ProductDetails = () => {
                 className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <ShoppingCart size={20} />
-                <span>{t('productDetails.finalCTA.orderButton')}</span>
+                <span>Order Now - ₹1,499</span>
               </button>
               <button 
                 onClick={() => {
@@ -316,7 +306,7 @@ const ProductDetails = () => {
                 }}
                 className="border-2 border-amber-400/50 text-amber-400 px-8 py-4 rounded-2xl font-bold text-lg hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
               >
-                {t('productDetails.finalCTA.learnMore')}
+                Learn More
               </button>
             </div>
           </div>

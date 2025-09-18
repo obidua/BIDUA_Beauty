@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Sparkles, Sun, Clock, EyeOff, Shield, Baby, Droplets, Award, Leaf, Moon, Heart, Flower } from 'lucide-react';
 
 const benefits = [
@@ -66,8 +65,6 @@ const benefits = [
 ];
 
 const Benefits = () => {
-  const { t } = useTranslation();
-  
   return (
     <section 
       id="benefits" 
@@ -82,9 +79,9 @@ const Benefits = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6">
-            {t('benefits.title')} <span className="gradient-text">{t('benefits.brandName')}</span>
+            Why Choose <span className="gradient-text">BIDUA Beauty</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">{t('benefits.subtitle')}</p>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">Experience the perfect blend of luxury and nature with our revolutionary cream for men, women, and even children</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
@@ -105,11 +102,11 @@ const Benefits = () => {
                   </div>
                   
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 lg:mb-4 group-hover:text-amber-400 transition-colors duration-300">
-                    {t(`benefits.benefit${index + 1}.title`)}
+                    {benefit.title}
                   </h3>
                   
                   <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                    {t(`benefits.benefit${index + 1}.description`)}
+                    {benefit.description}
                   </p>
                 </div>
 
@@ -128,7 +125,7 @@ const Benefits = () => {
             }}
             className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 sm:px-12 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
           >
-            {t('benefits.experienceButton')}
+            Experience the Difference
           </button>
         </div>
       </div>

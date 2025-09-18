@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { CheckCircle, Package, Truck, Mail, Home } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const ConfirmationPage = () => {
-  const { t } = useTranslation();
   const { cartItems, getSubtotal, getShippingCost, getTotalPrice } = useCart();
   const orderNumber = `LG${Date.now().toString().slice(-6)}`;
   const estimatedDelivery = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toLocaleDateString('en-IN', {
@@ -33,30 +31,30 @@ const ConfirmationPage = () => {
 
         {/* Success Message */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-          {t('confirmation.title')}
+          Order Confirmed!
         </h1>
         
-        <p className="text-lg sm:text-xl text-gray-300 mb-8 px-4">{t('confirmation.subtitle')}</p>
+        <p className="text-lg sm:text-xl text-gray-300 mb-8 px-4">Thank you for your purchase! Your order has been successfully placed.</p>
 
         {/* Order Details Card */}
         <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 mb-8">
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div>
-              <h3 className="text-amber-400 font-bold text-base sm:text-lg mb-3">{t('confirmation.orderDetails')}</h3>
+              <h3 className="text-amber-400 font-bold text-base sm:text-lg mb-3">Order Details</h3>
               <div className="space-y-2 text-gray-300 text-sm sm:text-base">
-                <p><span className="text-white font-medium">{t('confirmation.orderNumber')}</span> <span className="break-all">#{orderNumber}</span></p>
-                <p><span className="text-white font-medium">{t('confirmation.customer')}</span> Rajesh Kumar</p>
-                <p><span className="text-white font-medium">{t('confirmation.email')}</span> <span className="break-all">rajesh.kumar@email.com</span></p>
-                <p><span className="text-white font-medium">{t('confirmation.phone')}</span> +91 98765 43210</p>
+                <p><span className="text-white font-medium">Order Number:</span> <span className="break-all">#{orderNumber}</span></p>
+                <p><span className="text-white font-medium">Customer:</span> Rajesh Kumar</p>
+                <p><span className="text-white font-medium">Email:</span> <span className="break-all">rajesh.kumar@email.com</span></p>
+                <p><span className="text-white font-medium">Phone:</span> +91 98765 43210</p>
               </div>
             </div>
             
             <div>
-              <h3 className="text-amber-400 font-bold text-base sm:text-lg mb-3">{t('confirmation.deliveryInformation')}</h3>
+              <h3 className="text-amber-400 font-bold text-base sm:text-lg mb-3">Delivery Information</h3>
               <div className="space-y-2 text-gray-300 text-sm sm:text-base">
-                <p><span className="text-white font-medium">{t('confirmation.address')}</span> 123 MG Road, Mumbai, Maharashtra 400001</p>
-                <p><span className="text-white font-medium">{t('confirmation.estimatedDelivery')}</span> {estimatedDelivery}</p>
-                <p><span className="text-white font-medium">{t('confirmation.shipping')}</span> <span className="text-green-400">{t('confirmation.free')}</span></p>
+                <p><span className="text-white font-medium">Address:</span> 123 MG Road, Mumbai, Maharashtra 400001</p>
+                <p><span className="text-white font-medium">Estimated Delivery:</span> {estimatedDelivery}</p>
+                <p><span className="text-white font-medium">Shipping:</span> <span className="text-green-400">FREE</span></p>
               </div>
             </div>
           </div>
@@ -64,7 +62,7 @@ const ConfirmationPage = () => {
 
         {/* Order Status Timeline */}
         <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 mb-8">
-          <h3 className="text-white font-bold text-lg sm:text-xl mb-6">{t('confirmation.orderStatus')}</h3>
+          <h3 className="text-white font-bold text-lg sm:text-xl mb-6">Order Status</h3>
           
           <div className="flex items-center justify-between relative">
             {/* Progress Line */}
@@ -78,28 +76,28 @@ const ConfirmationPage = () => {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-400 rounded-full flex items-center justify-center mb-2">
                   <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                 </div>
-                <span className="text-amber-400 font-medium text-xs sm:text-sm text-center">{t('confirmation.orderPlaced')}</span>
+                <span className="text-amber-400 font-medium text-xs sm:text-sm text-center">Order Placed</span>
               </div>
               
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-700 rounded-full flex items-center justify-center mb-2">
                   <Package className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
                 </div>
-                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center">{t('confirmation.processing')}</span>
+                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center">Processing</span>
               </div>
               
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-700 rounded-full flex items-center justify-center mb-2">
                   <Truck className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
                 </div>
-                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center">{t('confirmation.shipped')}</span>
+                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center">Shipped</span>
               </div>
               
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-700 rounded-full flex items-center justify-center mb-2">
                   <Home className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
                 </div>
-                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center">{t('confirmation.delivered')}</span>
+                <span className="text-gray-400 font-medium text-xs sm:text-sm text-center">Delivered</span>
               </div>
             </div>
           </div>
@@ -125,14 +123,14 @@ const ConfirmationPage = () => {
             to="/"
             className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
           >
-            {t('cart.continueShopping')}
+            Continue Shopping
           </Link>
           
           <Link
             to="/queue-tracker"
             className="border-2 border-amber-400/50 text-amber-400 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
           >
-            {t('confirmation.trackQueue')}
+            Track My Queue
           </Link>
 
           <button
@@ -255,25 +253,25 @@ GST Helpline: +91 80 4567 8901
             }}
             className="border-2 border-amber-400/50 text-amber-400 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
           >
-            {t('confirmation.printReceipt')}
+            Print Receipt
           </button>
         </div>
 
         {/* Customer Support */}
         <div className="mt-12 text-center">
-          <p className="text-gray-400 mb-2 text-sm sm:text-base">{t('confirmation.support')}</p>
+          <p className="text-gray-400 mb-2 text-sm sm:text-base">Need help with your order?</p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-amber-400 text-sm sm:text-base">
             <a 
               href="mailto:support@biduabeauty.com?subject=Order Support - #{orderNumber}&body=Hi, I need help with my order #{orderNumber}. Please assist me."
               className="hover:text-amber-300 transition-colors duration-300 break-all"
             >
-              {t('confirmation.email')}
+              📧 support@biduabeauty.com
             </a>
             <a 
               href="tel:+915551234567" 
               className="hover:text-amber-300 transition-colors duration-300"
             >
-              {t('confirmation.phone')}
+              📞 +91 555 123 4567
             </a>
           </div>
         </div>

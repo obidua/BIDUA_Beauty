@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Star, Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import ProductImageSlider from './ProductImageSlider';
 import { PRODUCT_IMAGES, PRODUCT_ALT_TEXT } from '../data/productImages';
 
 const Hero = () => {
-  const { t } = useTranslation();
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
@@ -40,16 +38,16 @@ const Hero = () => {
           <div className="text-white space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1 text-center lg:text-left px-4 sm:px-6 lg:px-0">
             <div className="flex items-center justify-center lg:justify-start space-x-2 text-amber-400">
               <Sparkles size={16} className="sm:w-5 sm:h-5" />
-              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase">{t('hero.premiumSkincare')}</span>
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase">Premium Skincare</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              {t('hero.brandName')}
-              <span className="block gradient-text">{t('hero.productName')}</span>
-              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-gray-300">{t('hero.tagline')}</span>
+              BIDUA
+              <span className="block gradient-text">RADIANCE 15</span>
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-gray-300">True Glow in 15 Days</span>
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg mx-auto lg:mx-0">{t('hero.description')}</p>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg mx-auto lg:mx-0">Reduces dark spots, repairs sun damage, and restores natural skin tone with our revolutionary formula. Experience visible results in just 15 days with premium saffron oil and natural ingredients designed for all skin types.</p>
 
             <div className="flex items-center justify-center lg:justify-start space-x-2 sm:space-x-4 text-amber-400">
               <div className="flex space-x-1">
@@ -57,7 +55,7 @@ const Hero = () => {
                   <Star key={i} size={14} className="sm:w-4 sm:h-4 lg:w-5 lg:h-5" fill="currentColor" />
                 ))}
               </div>
-              <span className="text-white text-sm sm:text-base">{t('hero.rating')}</span>
+              <span className="text-white text-sm sm:text-base">4.9/5 from 2,847 reviews</span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
@@ -66,8 +64,8 @@ const Hero = () => {
                 className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
               >
                 <span className="flex flex-col items-center">
-                  <span className="text-xs line-through opacity-70">{t('hero.originalPrice')}</span>
-                  <span>{t('hero.orderButton')}</span>
+                  <span className="text-xs line-through opacity-70">₹4,999</span>
+                  <span>Order Now - ₹1,499</span>
                 </span>
               </button>
               <button 
@@ -77,7 +75,7 @@ const Hero = () => {
                 }}
                 className="border-2 border-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg hover:border-amber-400 hover:text-amber-400 transition-all duration-300 w-full sm:w-auto"
               >
-                {t('hero.learnMore')}
+                Learn More
               </button>
             </div>
           </div>

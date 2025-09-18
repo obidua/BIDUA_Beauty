@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Plus, Minus, Trash2, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import ProductImageSlider from '../components/ProductImageSlider';
 import { PRODUCT_IMAGES, PRODUCT_ALT_TEXT } from '../data/productImages';
 
 const CartPage = () => {
-  const { t } = useTranslation();
   const { cartItems, updateQuantity, removeFromCart, getTotalPrice, getSubtotal, getShippingCost, getB2bSubtotal } = useCart();
 
   const MIN_B2B_ORDER_VALUE = 20000;
@@ -28,13 +26,13 @@ const CartPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4">
         <div className="text-center">
           <ShoppingBag className="w-24 h-24 text-gray-600 mx-auto mb-8" />
-          <h1 className="text-4xl font-bold text-white mb-4">{t('cart.empty')}</h1>
-          <p className="text-gray-400 mb-8 text-lg">{t('cart.emptySubtitle')}</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Your Cart is Empty</h1>
+          <p className="text-gray-400 mb-8 text-lg">Add some products to get started</p>
           <Link 
             to="/" 
             className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
           >
-            {t('cart.continueShopping')}
+            Continue Shopping
           </Link>
         </div>
       </div>
@@ -50,21 +48,21 @@ const CartPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('cart.continueShopping')}</span>
+          <span>Continue Shopping</span>
         </Link>
 
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            {t('cart.title')}
+            Shopping Cart
           </h1>
-          <p className="text-gray-300 text-lg">{t('cart.subtitle')}</p>
+          <p className="text-gray-300 text-lg">Review your items before checkout</p>
         </div>
 
         {/* B2B Minimum Order Warning */}
         {hasB2bItems && !isB2bMinOrderMet && (
           <div className="bg-red-500/20 border border-red-500/30 rounded-2xl p-4 text-center text-red-300 mb-8">
-            <p>{t('cart.b2bMinOrderWarning', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE), currentTotal: formatPrice(currentB2bSubtotal) })}</p>
+            <p>For B2B orders, a minimum total of {formatPrice(MIN_B2B_ORDER_VALUE)} is required. Current B2B total: {formatPrice(currentB2bSubtotal)}.</p>
           </div>
         )}
 
@@ -108,7 +106,7 @@ const CartPage = () => {
                     {/* Quantity Controls */}
                     <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-3 lg:space-y-0">
                       <div className="flex items-center space-x-2 sm:space-x-3">
-                        <span className="text-sm sm:text-base text-gray-300 font-medium">{t('cart.quantity')}</span>
+                        <span className="text-sm sm:text-base text-gray-300 font-medium">Quantity:</span>
                         <div className="flex items-center space-x-1 sm:space-x-2">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -143,7 +141,7 @@ const CartPage = () => {
           {/* Order Summary */}
           <div className="lg:col-span-1">
             <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 sticky top-8">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">{t('cart.orderSummary')}</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">Order Summary</h2>
               
               <div className="space-y-2 sm:space-y-3 lg:space-y-4 mb-4 lg:mb-6">
                 {cartItems.map((item) => (
@@ -156,21 +154,21 @@ const CartPage = () => {
 
               <div className="border-t border-gray-700 pt-3 lg:pt-4 mb-4 lg:mb-6">
                 <div className="flex justify-between text-gray-300 mb-2 text-xs sm:text-sm lg:text-base">
-                  <span>{t('cart.subtotal')}</span>
+                  <span>Subtotal</span>
                   <span>{formatPrice(getSubtotal())}</span>
                 </div>
                 {hasB2bItems && (
                   <div className="flex justify-between text-gray-300 mb-2 text-xs sm:text-sm lg:text-base">
-                    <span>{t('cart.b2bSubtotal')}</span>
+                    <span>B2B Subtotal</span>
                     <span>{formatPrice(currentB2bSubtotal)}</span>
                   </div>
                 )}
                 <div className="flex justify-between text-gray-300 mb-2 text-xs sm:text-sm lg:text-base">
-                  <span>{t('cart.shipping')}</span>
+                  <span>Shipping</span>
                   <span>{formatPrice(getShippingCost())}</span>
                 </div>
                 <div className="flex justify-between text-base sm:text-lg lg:text-xl font-bold text-white">
-                  <span>{t('cart.total')}</span>
+                  <span>Total</span>
                   <span className="text-amber-400">{formatPrice(getTotalPrice())}</span>
                 </div>
               </div>
@@ -181,18 +179,18 @@ const CartPage = () => {
                 onClick={(e) => {
                   if (hasB2bItems && !isB2bMinOrderMet) {
                     e.preventDefault();
-                    alert(t('cart.b2bMinOrderAlert', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE) }));
+                    alert(`Please ensure your B2B order meets the minimum value of ${formatPrice(MIN_B2B_ORDER_VALUE)} to proceed.`);
                   }
                 }}
               >
-                {t('cart.proceedToCheckout')}
+                Proceed to Checkout
               </Link>
 
               <div className="mt-4 lg:mt-6 text-center">
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-4 text-gray-400 text-xs">
-                  <span>{t('cart.secureCheckout')}</span>
-                  <span>{t('cart.fastDelivery')}</span>
-                  <span>{t('cart.returns')}</span>
+                  <span>✓ Secure Checkout</span>
+                  <span>✓ Fast Delivery</span>
+                  <span>✓ 30-Day Returns</span>
                 </div>
               </div>
             </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ShoppingBag, Package, DollarSign, LogIn } from 'lucide-react';
 import ProductImageSlider from '../components/ProductImageSlider';
 import { PRODUCT_IMAGES } from '../data/productImages';
@@ -38,7 +37,6 @@ const b2bProducts = [
 ];
 
 const B2bCatalogPage = () => {
-  const { t } = useTranslation();
   const { isLoggedIn } = useAuth();
   const { addToCart } = useCart();
   const navigate = useNavigate();
@@ -56,20 +54,20 @@ const B2bCatalogPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4 py-16">
         <div className="text-center max-w-md">
           <LogIn className="w-24 h-24 text-gray-600 mx-auto mb-8" />
-          <h1 className="text-4xl font-bold text-white mb-4">{t('b2bCatalog.loginRequired.title')}</h1>
-          <p className="text-gray-400 mb-8 text-lg">{t('b2bCatalog.loginRequired.subtitle')}</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Login Required</h1>
+          <p className="text-gray-400 mb-8 text-lg">Please login to access the B2B catalog</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               to="/login" 
               className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
             >
-              {t('login.loginButton')}
+              Login
             </Link>
             <Link 
               to="/signup" 
               className="border-2 border-amber-400/50 text-amber-400 px-8 py-4 rounded-full font-bold text-lg hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
             >
-              {t('signup.signupButton')}
+              Sign Up
             </Link>
           </div>
         </div>
@@ -92,7 +90,7 @@ const B2bCatalogPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('common.backToHome')}</span>
+          <span>Back to Home</span>
         </Link>
 
         {/* Page Header */}
@@ -101,17 +99,17 @@ const B2bCatalogPage = () => {
             <ShoppingBag className="w-10 h-10 text-black" />
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            {t('b2bCatalog.title')}
+            B2B Catalog
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            {t('b2bCatalog.subtitle')}
+            Exclusive wholesale pricing for business partners
           </p>
         </div>
 
         {/* Minimum Order Info */}
         <div className="bg-amber-400/10 border border-amber-400/30 rounded-2xl p-4 text-center mb-12">
           <p className="text-amber-200 text-base font-medium">
-            {t('b2bCatalog.minOrderInfo')} <span className="font-bold">₹20,000</span>
+            Minimum order value: <span className="font-bold">₹20,000</span>
           </p>
         </div>
 
@@ -133,8 +131,8 @@ const B2bCatalogPage = () => {
               
               <div className="flex items-baseline justify-between mb-3">
                 <div>
-                  <p className="text-gray-400 text-sm line-through">{t('b2bCatalog.mrp')}: {formatPrice(product.mrp)}</p>
-                  <p className="text-amber-400 text-2xl font-bold">{t('b2bCatalog.b2bPrice')}: {formatPrice(product.b2bPrice)}</p>
+                  <p className="text-gray-400 text-sm line-through">MRP: {formatPrice(product.mrp)}</p>
+                  <p className="text-amber-400 text-2xl font-bold">B2B Price: {formatPrice(product.b2bPrice)}</p>
                 </div>
                 <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-bold">
                   {Math.round((1 - product.b2bPrice / product.mrp) * 100)}% OFF
@@ -142,7 +140,7 @@ const B2bCatalogPage = () => {
               </div>
 
               <p className="text-gray-300 text-sm mb-4">
-                {t('b2bCatalog.minOrderQty')}: <span className="font-bold">{product.minOrderQty}</span> {t('b2bCatalog.units')}
+                Min Order Qty: <span className="font-bold">{product.minOrderQty}</span> units
               </p>
 
               <button
@@ -161,7 +159,7 @@ const B2bCatalogPage = () => {
                 className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <Package className="w-5 h-5" />
-                <span>{t('b2bCatalog.addToOrder')}</span>
+                <span>Add to Order</span>
               </button>
             </div>
           ))}

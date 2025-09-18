@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Lock, User, Eye, EyeOff, Mail, Phone } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const SignupPage = () => {
-  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
@@ -20,12 +18,12 @@ const SignupPage = () => {
     e.preventDefault();
     setError('');
     if (password !== confirmPassword) {
-      setError(t('signup.passwordMismatch'));
+      setError('Passwords do not match');
       return;
     }
     // Static implementation: In a real app, this would trigger an API call
     console.log('Attempting signup with:', { email, phone, password });
-    alert(t('signup.successMessage'));
+    alert('Account created successfully! You are now logged in.');
     // Simulate auto-login after successful signup
     login(email, password); // Using email as username for static login
     navigate('/'); // Redirect to home after simulated signup/login
@@ -46,7 +44,7 @@ const SignupPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-8 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('common.backToHome')}</span>
+          <span>Back to Home</span>
         </Link>
 
         {/* Signup Card */}
@@ -57,10 +55,10 @@ const SignupPage = () => {
               <User className="w-8 h-8 text-black" />
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">
-              {t('signup.title')}
+              Create Account
             </h1>
             <p className="text-gray-400 text-sm">
-              {t('signup.subtitle')}
+              Join BIDUA Beauty and start your glow journey
             </p>
           </div>
 
@@ -69,7 +67,7 @@ const SignupPage = () => {
             {/* Email Field */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('signup.email')}
+                Email Address
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -78,7 +76,7 @@ const SignupPage = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-4 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('signup.enterEmail')}
+                  placeholder="Enter your email address"
                   required
                 />
               </div>
@@ -87,7 +85,7 @@ const SignupPage = () => {
             {/* Phone Field (Optional) */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('signup.phone')}
+                Phone Number (Optional)
               </label>
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -96,7 +94,7 @@ const SignupPage = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-4 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('signup.enterPhone')}
+                  placeholder="Enter your phone number"
                 />
               </div>
             </div>
@@ -104,7 +102,7 @@ const SignupPage = () => {
             {/* Password Field */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('signup.password')}
+                Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -113,7 +111,7 @@ const SignupPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-12 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('signup.enterPassword')}
+                  placeholder="Create a strong password"
                   required
                 />
                 <button
@@ -129,7 +127,7 @@ const SignupPage = () => {
             {/* Confirm Password Field */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('signup.confirmPassword')}
+                Confirm Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -138,7 +136,7 @@ const SignupPage = () => {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-12 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('signup.confirmPassword')}
+                  placeholder="Confirm your password"
                   required
                 />
                 <button
@@ -162,14 +160,14 @@ const SignupPage = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105"
             >
-              {t('signup.signupButton')}
+              Create Account
             </button>
           </form>
 
           {/* Login Link */}
           <div className="mt-6 text-center">
             <p className="text-gray-400 text-sm">
-              {t('signup.haveAccount')} <Link to="/login" className="text-amber-400 hover:underline">{t('signup.loginLink')}</Link>
+              Already have an account? <Link to="/login" className="text-amber-400 hover:underline">Sign In</Link>
             </p>
           </div>
         </div>

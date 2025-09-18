@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, CreditCard, Shield, Truck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import ProductImageSlider from '../components/ProductImageSlider';
 import { PRODUCT_IMAGES, PRODUCT_ALT_TEXT } from '../data/productImages';
 
 const CheckoutPage = () => {
-  const { t } = useTranslation();
   const { cartItems, getTotalPrice, getSubtotal, getShippingCost, clearCart, getB2bSubtotal } = useCart();
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -20,7 +18,7 @@ const CheckoutPage = () => {
   // Redirect if B2B items are present but min order not met
   useEffect(() => {
     if (hasB2bItems && !isB2bMinOrderMet) {
-      alert(t('checkout.b2bMinOrderRedirect', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE) }));
+      alert(`B2B orders require a minimum order value of ${formatPrice(MIN_B2B_ORDER_VALUE)}. Please add more items to your cart.`);
       navigate('/cart');
     }
   }, [hasB2bItems, isB2bMinOrderMet, navigate, t]);
@@ -51,7 +49,7 @@ const CheckoutPage = () => {
     
     // Prevent order if B2B min order not met
     if (hasB2bItems && !isB2bMinOrderMet) {
-      alert(t('checkout.b2bMinOrderAlert', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE) }));
+      alert(`B2B orders require a minimum order value of ${formatPrice(MIN_B2B_ORDER_VALUE)}. Please add more items to your cart.`);
       setIsProcessing(false);
       return;
     }
@@ -70,13 +68,13 @@ const CheckoutPage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">{t('checkout.noItems')}</h1>
-          <p className="text-gray-400 mb-8">{t('cart.empty')}</p>
+          <h1 className="text-4xl font-bold text-white mb-4">No Items to Checkout</h1>
+          <p className="text-gray-400 mb-8">Your cart is empty</p>
           <Link 
             to="/" 
             className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
           >
-            {t('cart.continueShopping')}
+            Continue Shopping
           </Link>
         </div>
       </div>
@@ -92,15 +90,15 @@ const CheckoutPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('checkout.backToCart')}</span>
+          <span>Back to Cart</span>
         </Link>
 
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            {t('checkout.title')}
+            Checkout
           </h1>
-          <p className="text-gray-300 text-lg">{t('checkout.subtitle')}</p>
+          <p className="text-gray-300 text-lg">Complete your order</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -108,12 +106,12 @@ const CheckoutPage = () => {
           <div className="space-y-6 lg:space-y-8">
             {/* Customer Information */}
             <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">{t('checkout.customerInformation')}</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">Customer Information</h2>
               
               <form onSubmit={handlePlaceOrder} className="space-y-4 lg:space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                   <div>
-                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.firstName')}</label>
+                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">First Name</label>
                     <input
                       type="text"
                       value={customerDetails.firstName}
@@ -123,7 +121,7 @@ const CheckoutPage = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.lastName')}</label>
+                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">Last Name</label>
                     <input
                       type="text"
                       value={customerDetails.lastName}
@@ -135,7 +133,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.email')}</label>
+                  <label className="block text-white font-medium mb-2 text-sm lg:text-base">Email</label>
                   <input
                     type="email"
                     value={customerDetails.email}
@@ -146,7 +144,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.phone')}</label>
+                  <label className="block text-white font-medium mb-2 text-sm lg:text-base">Phone</label>
                   <input
                     type="tel"
                     value={customerDetails.phone}
@@ -157,7 +155,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.address')}</label>
+                  <label className="block text-white font-medium mb-2 text-sm lg:text-base">Address</label>
                   <input
                     type="text"
                     value={customerDetails.address}
@@ -169,7 +167,7 @@ const CheckoutPage = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
                   <div>
-                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.city')}</label>
+                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">City</label>
                     <input
                       type="text"
                       value={customerDetails.city}
@@ -179,7 +177,7 @@ const CheckoutPage = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.state')}</label>
+                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">State</label>
                     <input
                       type="text"
                       value={customerDetails.state}
@@ -189,7 +187,7 @@ const CheckoutPage = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">{t('checkout.pincode')}</label>
+                    <label className="block text-white font-medium mb-2 text-sm lg:text-base">Pincode</label>
                     <input
                       type="text"
                       value={customerDetails.pincode}
@@ -204,7 +202,7 @@ const CheckoutPage = () => {
 
             {/* Payment Method */}
             <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">{t('checkout.paymentMethod')}</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">Payment Method</h2>
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 p-3 lg:p-4 bg-amber-400/10 border border-amber-400/30 rounded-xl lg:rounded-2xl">
@@ -218,8 +216,8 @@ const CheckoutPage = () => {
                     className="text-amber-400"
                   />
                   <CreditCard className="w-6 h-6 text-amber-400" />
-                  <label htmlFor="card" className="text-white font-medium flex-1 text-sm lg:text-base">{t('checkout.creditCard')}</label>
-                  <span className="text-amber-400 text-xs lg:text-sm font-bold">{t('checkout.secure')}</span>
+                  <label htmlFor="card" className="text-white font-medium flex-1 text-sm lg:text-base">Credit/Debit Card</label>
+                  <span className="text-amber-400 text-xs lg:text-sm font-bold">Secure</span>
                 </div>
 
                 <div className="flex items-center space-x-3 p-3 lg:p-4 bg-gray-700/30 border border-gray-600/50 rounded-xl lg:rounded-2xl opacity-50">
@@ -232,8 +230,8 @@ const CheckoutPage = () => {
                     className="text-amber-400"
                   />
                   <Truck className="w-6 h-6 text-gray-400" />
-                  <label htmlFor="cod" className="text-gray-400 font-medium flex-1 text-sm lg:text-base">{t('checkout.cashOnDelivery')}</label>
-                  <span className="text-gray-400 text-xs lg:text-sm">{t('checkout.comingSoon')}</span>
+                  <label htmlFor="cod" className="text-gray-400 font-medium flex-1 text-sm lg:text-base">Cash on Delivery</label>
+                  <span className="text-gray-400 text-xs lg:text-sm">Coming Soon</span>
                 </div>
               </div>
             </div>
@@ -243,7 +241,7 @@ const CheckoutPage = () => {
           <div className="space-y-6 lg:space-y-8">
             {/* Order Items */}
             <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">{t('cart.orderSummary')}</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">Order Summary</h2>
               
               <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-6">
                 {cartItems.map((item) => (
@@ -259,7 +257,7 @@ const CheckoutPage = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-white font-medium text-xs sm:text-sm lg:text-base">{item.name} {item.type === 'b2b' && '(B2B)'}</h3>
-                      <p className="text-gray-400 text-xs">{t('cart.quantity')} {item.quantity}</p>
+                      <p className="text-gray-400 text-xs">Quantity: {item.quantity}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-amber-400 font-bold text-xs sm:text-sm lg:text-base">{formatPrice(item.price * item.quantity)}</p>
@@ -273,18 +271,18 @@ const CheckoutPage = () => {
 
               <div className="border-t border-gray-700 pt-4 lg:pt-6 space-y-2 lg:space-y-3">
                 <div className="flex justify-between text-gray-300 text-xs sm:text-sm lg:text-base">
-                  <span>{t('cart.subtotal')}</span>
+                  <span>Subtotal</span>
                   <span>{formatPrice(getTotalPrice())}</span>
                 </div>
                 {hasB2bItems && (
                   <div className="flex justify-between text-gray-300 text-xs sm:text-sm lg:text-base">
-                    <span>{t('cart.b2bSubtotal')}</span>
+                    <span>B2B Subtotal</span>
                     <span>{formatPrice(currentB2bSubtotal)}</span>
                   </div>
                 )}
                 <div className="flex justify-between text-gray-300 text-xs sm:text-sm lg:text-base">
-                  <span>{t('cart.shipping')}</span>
-                  <span className="text-green-400">{t('confirmation.free')}</span>
+                  <span>Shipping</span>
+                  <span className="text-green-400">Free</span>
                 </div>
                 <div className="flex justify-between text-gray-300 text-xs sm:text-sm lg:text-base">
                   <span>Tax</span>
@@ -292,7 +290,7 @@ const CheckoutPage = () => {
                 </div>
                 <div className="border-t border-gray-700 pt-2 lg:pt-3">
                   <div className="flex justify-between text-base sm:text-lg lg:text-2xl font-bold text-white">
-                    <span>{t('cart.total')}</span>
+                    <span>Total</span>
                     <span className="text-amber-400">{formatPrice(getTotalPrice())}</span>
                   </div>
                 </div>
@@ -308,12 +306,12 @@ const CheckoutPage = () => {
               {isProcessing ? (
                 <div className="flex items-center justify-center space-x-2 lg:space-x-3">
                   <div className="w-4 h-4 lg:w-6 lg:h-6 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-                  <span>{t('checkout.processingPayment')}</span>
+                  <span>Processing Payment...</span>
                 </div>
               ) : (
                 <div className="flex items-center justify-center space-x-2 lg:space-x-3">
                   <Shield className="w-4 h-4 lg:w-6 lg:h-6" />
-                  <span>{t('checkout.placeOrder')}</span>
+                  <span>Place Order</span>
                 </div>
               )}
             </button>
@@ -322,13 +320,13 @@ const CheckoutPage = () => {
             <div className="bg-green-500/10 border border-green-500/30 rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6">
               <div className="flex items-center space-x-2 lg:space-x-3 mb-3 lg:mb-4">
                 <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-green-400" />
-                <h3 className="text-green-400 font-bold text-sm sm:text-base lg:text-lg">{t('checkout.securityFeatures.title')}</h3>
+                <h3 className="text-green-400 font-bold text-sm sm:text-base lg:text-lg">Security Features</h3>
               </div>
               <div className="space-y-1 lg:space-y-2 text-green-300 text-xs">
-                <p>{t('checkout.securityFeatures.ssl')}</p>
-                <p>{t('checkout.securityFeatures.protection')}</p>
-                <p>{t('checkout.securityFeatures.guarantee')}</p>
-                <p>{t('checkout.securityFeatures.delivery')}</p>
+                <p>256-bit SSL encryption</p>
+                <p>Fraud protection</p>
+                <p>Money-back guarantee</p>
+                <p>Secure delivery tracking</p>
               </div>
             </div>
           </div>

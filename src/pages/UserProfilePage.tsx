@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, User, Mail, Phone, Briefcase, DollarSign, LogOut, Package, ShoppingBag } from 'lucide-react';
+import { ListOrdered } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const UserProfilePage = () => {
@@ -108,6 +109,14 @@ const UserProfilePage = () => {
             <ShoppingBag className="w-10 h-10 text-white mb-4" />
             <h3 className="text-xl font-bold text-white">{t('userProfile.b2bOrders')}</h3>
             <p className="text-gray-300 text-sm">{t('userProfile.placeB2bOrder')}</p>
+          </Link>
+          <Link 
+            to="/queue-tracker"
+            className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 text-center flex flex-col items-center justify-center hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
+          >
+            <ListOrdered className="w-10 h-10 text-white mb-4" />
+            <h3 className="text-xl font-bold text-white">{t('userProfile.myQueue')}</h3>
+            <p className="text-gray-300 text-sm">{t('userProfile.trackQueue')}</p>
           </Link>
           <Link 
             to="/join-brpp" 

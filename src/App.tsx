@@ -18,6 +18,7 @@ import JoinBrppPage from './pages/JoinBrppPage';
 import B2bCatalogPage from './pages/B2bCatalogPage';
 import PartnerWalletPage from './pages/PartnerWalletPage';
 import UserProfilePage from './pages/UserProfilePage';
+import QueueTrackerPage from './pages/QueueTrackerPage';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/b2b-catalog" element={<B2bCatalogPage />} />
         <Route path="/partner-wallet" element={<PartnerWalletPage />} />
         <Route path="/user-profile" element={<UserProfilePage />} />
+        <Route path="/queue-tracker" element={<QueueTrackerPage />} />
       </Routes>
     </div>
   );

@@ -128,6 +128,13 @@ const ConfirmationPage = () => {
             {t('cart.continueShopping')}
           </Link>
           
+          <Link
+            to="/queue-tracker"
+            className="border-2 border-amber-400/50 text-amber-400 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
+          >
+            {t('confirmation.trackQueue')}
+          </Link>
+
           <button
             onClick={() => {
               // Create a complete bill format for printing

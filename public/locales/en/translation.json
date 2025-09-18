@@ -266,6 +266,7 @@
       "guarantee": "✓ Enjoy free shipping and our 30-day money-back guarantee"
     },
     "printReceipt": "Print Receipt",
+    "trackQueue": "Track My Queue",
     "support": "Need help with your order?",
     "email": "📧 support@luxeglow.com",
     "phone": "📞 +91 555 123 4567"
@@ -579,6 +580,44 @@
       "escrow_pending": "Pending",
       "reversed": "Reversed"
     },
+  },
+  "queueTracker": {
+    "title": "Stock & Queue Tracker",
+    "subtitle": "Monitor global stock movement and your position in the allocation queue.",
+    "globalStockStatus": "Global Stock Status",
+    "soldStock": "Recently Sold Stock",
+    "noSoldStock": "No stock sold recently.",
+    "availableStock": "Available Stock for Allocation",
+    "noAvailableStock": "No stock currently available for allocation.",
+    "readyForAllocation": "Ready for Allocation",
+    "yourQueuedOrders": "Your Queued Orders",
+    "noQueuedOrders": "You currently have no queued orders.",
+    "browseB2bCatalog": "Browse B2B Catalog",
+    "table": {
+      "orderId": "Order ID",
+      "sku": "Product SKU",
+      "quantity": "Quantity",
+      "serialRange": "Serial Range",
+      "status": "Status",
+      "yourPosition": "Your Position",
+      "estimatedDelivery": "Est. Delivery"
+    },
+    "status": {
+      "pending": "Pending",
+      "allocated": "Allocated",
+      "shipped": "Shipped"
+    },
+    "loginRequired": {
+      "title": "Login Required",
+      "subtitle": "Please log in or sign up to view the Queue Tracker."
+    },
+    "howQueueWorks": {
+      "title": "How the Queue System Works",
+      "fifo": "Stock is allocated on a First-In-First-Out basis. Earlier orders get priority.",
+      "serialAllocation": "Each product has a unique serial number. Your order is assigned specific serial ranges.",
+      "b2cImpact": "When B2C customers buy products with your allocated serials, you earn profit share.",
+      "profitSharing": "You receive 60% of profit + full cost reimbursement when your serials are sold."
+    }
     "loginRequired": {
       "title": "Login Required",
       "subtitle": "Please log in or sign up to view your Partner Wallet."
@@ -597,6 +636,10 @@
     "viewEarnings": "View your earnings and transactions",
     "b2bOrders": "B2B Orders",
     "placeB2bOrder": "Place new B2B orders",
+    "brppProgram": "BRPP Program",
+    "joinBrpp": "Join or manage BRPP membership",
+    "myQueue": "My Queue",
+    "trackQueue": "Track your queued orders",
     "brppProgram": "BRPP Program",
     "joinBrpp": "Join or manage BRPP membership",
     "notLoggedIn": {

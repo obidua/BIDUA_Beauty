@@ -192,14 +192,16 @@ const ProductDetails = () => {
                     <h4 className="text-lg sm:text-xl font-bold text-white">{t(`productDetails.howToUse.usage${index + 1}.title`)}</h4>
                   </div>
                   <ol className="space-y-3">
-                    {t(`productDetails.howToUse.usage${index + 1}.steps`, { returnObjects: true }).map((step, stepIndex) => (
+                    {Array.isArray(t(`productDetails.howToUse.usage${index + 1}.steps`, { returnObjects: true })) ? 
+                      t(`productDetails.howToUse.usage${index + 1}.steps`, { returnObjects: true }).map((step, stepIndex) => (
                       <li key={stepIndex} className="flex items-start">
                         <span className="bg-amber-400 text-black rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
                           {stepIndex + 1}
                         </span>
                         <span className="text-gray-300 text-sm sm:text-base">{step}</span>
                       </li>
-                    ))}
+                      )) : []
+                    }
                   </ol>
                 </div>
               );
@@ -217,12 +219,14 @@ const ProductDetails = () => {
               {t('productDetails.whyItWorks.description')}
             </p>
             <div className="grid sm:grid-cols-2 gap-4 lg:gap-6 mb-8">
-              {t('productDetails.whyItWorks.reasons', { returnObjects: true }).map((reason, index) => (
+              {Array.isArray(t('productDetails.whyItWorks.reasons', { returnObjects: true })) ? 
+                t('productDetails.whyItWorks.reasons', { returnObjects: true }).map((reason, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <Shield className="w-6 h-6 text-amber-400 flex-shrink-0" />
                   <span className="text-gray-300 text-sm sm:text-base">{reason}</span>
                 </div>
-              ))}
+                )) : []
+              }
             </div>
             <p className="text-center text-amber-400 font-bold text-lg sm:text-xl">
               {t('productDetails.whyItWorks.conclusion')}
@@ -237,12 +241,14 @@ const ProductDetails = () => {
           </h3>
           <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 lg:p-12">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {t('productDetails.whoCanUse.users', { returnObjects: true }).map((user, index) => (
+              {Array.isArray(t('productDetails.whoCanUse.users', { returnObjects: true })) ? 
+                t('productDetails.whoCanUse.users', { returnObjects: true }).map((user, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <Users className="w-6 h-6 text-amber-400 flex-shrink-0" />
                   <span className="text-gray-300 text-sm sm:text-base font-medium">{user}</span>
                 </div>
-              ))}
+                )) : []
+              }
             </div>
           </div>
         </div>
@@ -253,7 +259,8 @@ const ProductDetails = () => {
             {t('productDetails.faqs.title')} <span className="gradient-text">{t('productDetails.faqs.questions')}</span>
           </h3>
           <div className="max-w-4xl mx-auto space-y-4">
-            {t('productDetails.faqs.items', { returnObjects: true }).map((faq, index) => (
+            {Array.isArray(t('productDetails.faqs.items', { returnObjects: true })) ? 
+              t('productDetails.faqs.items', { returnObjects: true }).map((faq, index) => (
               <div
                 key={index}
                 className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden"
@@ -280,7 +287,8 @@ const ProductDetails = () => {
                   </div>
                 )}
               </div>
-            ))}
+              )) : []
+            }
           </div>
         </div>
 

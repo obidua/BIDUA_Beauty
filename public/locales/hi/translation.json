@@ -5,7 +5,10 @@
     "ingredients": "सामग्री",
     "details": "विवरण",
     "reviews": "समीक्षा",
-    "costCalculator": "लागत कैलकुलेटर"
+    "costCalculator": "लागत कैलकुलेटर",
+    "joinBrpp": "Join BRPP",
+    "b2bCatalog": "B2B Catalog",
+    "partnerWallet": "Partner Wallet"
   },
   "hero": {
     "premiumSkincare": "प्रीमियम स्किनकेयर",
@@ -442,6 +445,153 @@
     "back": "वापस",
     "continue": "जारी रखें",
     "submit": "सबमिट करें",
-    "reset": "रीसेट करें"
+    "reset": "रीसेट करें",
+    "backToHome": "होम पर वापस जाएं",
+    "optional": "वैकल्पिक",
+    "logout": "लॉगआउट"
+  },
+  "login": {
+    "title": "अपने खाते में लॉगिन करें",
+    "subtitle": "अपने व्यक्तिगत डैशबोर्ड और BRPP सुविधाओं तक पहुंचें",
+    "emailOrPhone": "ईमेल या फोन नंबर",
+    "enterEmailOrPhone": "अपना ईमेल या फोन दर्ज करें",
+    "password": "पासवर्ड",
+    "enterPassword": "अपना पासवर्ड दर्ज करें",
+    "loginButton": "लॉगिन",
+    "noAccount": "कोई खाता नहीं है?",
+    "signupLink": "साइन अप करें",
+    "invalidCredentials": "गलत क्रेडेंशियल्स। कृपया फिर से कोशिश करें।",
+    "successMessage": "लॉगिन सफल!",
+    "demoUser": "डेमो यूजर आईडी",
+    "demoPassword": "डेमो पासवर्ड"
+  },
+  "signup": {
+    "title": "अपना खाता बनाएं",
+    "subtitle": "BIDUA Beauty में शामिल हों और विशेष लाभ अनलॉक करें",
+    "email": "ईमेल पता",
+    "enterEmail": "अपना ईमेल पता दर्ज करें",
+    "phone": "फोन नंबर",
+    "enterPhone": "अपना फोन नंबर दर्ज करें (वैकल्पिक)",
+    "password": "पासवर्ड",
+    "enterPassword": "एक पासवर्ड बनाएं",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "signupButton": "साइन अप करें",
+    "haveAccount": "पहले से खाता है?",
+    "loginLink": "लॉगिन",
+    "passwordMismatch": "पासवर्ड मेल नहीं खाते!",
+    "successMessage": "खाता सफलतापूर्वक बनाया गया!"
+  },
+  "brpp": {
+    "join": {
+      "title": "BIDUA Retail Partnership Program (BRPP) में शामिल हों",
+      "subtitle": "एक मूल्यवान साझेदार बनें और BIDUA Beauty के साथ विशेष B2B लाभ अनलॉक करें।",
+      "benefitsTitle": "BRPP सदस्यता के लाभ",
+      "benefit1": "सभी BIDUA Beauty उत्पादों पर विशेष B2B थोक मूल्य निर्धारण तक पहुंच।",
+      "benefit2": "B2C बिक्री पर लाभ साझाकरण के साथ कंसाइनमेंट मॉडल में भाग लें।",
+      "benefit3": "प्राथमिकता स्टॉक आवंटन और समर्पित साझेदार समर्थन।",
+      "annualFee": "वार्षिक सदस्यता शुल्क:",
+      "feeDetails": "₹4,999 (सभी करों सहित)। 365 दिनों के लिए वैध।",
+      "subscribeButton": "अभी सब्सक्राइब करें - ₹4,999",
+      "paymentInitiated": "भुगतान शुरू किया गया। कृपया भुगतान प्रक्रिया पूरी करें।"
+    },
+    "businessProfile": {
+      "title": "व्यापारिक प्रोफ़ाइल और KYC",
+      "subtitle": "B2B खरीदारी सक्रिय करने के लिए सत्यापन हेतु अपने व्यापारिक विवरण प्रदान करें।",
+      "firmName": "फर्म/कंपनी का नाम",
+      "enterFirmName": "अपनी फर्म या कंपनी का नाम दर्ज करें",
+      "firmType": "फर्म प्रकार",
+      "firmTypes": {
+        "proprietor": "प्रोप्राइटर",
+        "partnership": "पार्टनरशिप",
+        "llp": "LLP",
+        "pvtLtd": "Pvt Ltd",
+        "other": "अन्य"
+      },
+      "address": "व्यापारिक पता",
+      "enterAddress": "अपना पूरा व्यापारिक पता दर्ज करें",
+      "pan": "PAN नंबर",
+      "enterPan": "अपना PAN नंबर दर्ज करें",
+      "gstin": "GSTIN",
+      "enterGstin": "अपना GSTIN दर्ज करें (वैकल्पिक)",
+      "bankAccount": "बैंक खाता संख्या",
+      "enterBankAccount": "अपना बैंक खाता संख्या दर्ज करें",
+      "ifsc": "IFSC कोड",
+      "enterIfsc": "अपना IFSC कोड दर्ज करें",
+      "kycDocs": "KYC दस्तावेज अपलोड करें",
+      "clickToUpload": "अपलोड करने के लिए क्लिक करें",
+      "orDragAndDrop": "या ड्रैग और ड्रॉप करें",
+      "fileTypes": "PAN कार्ड, GST प्रमाणपत्र, रद्द चेक (PDF, JPG, PNG)",
+      "uploadedFiles": "अपलोड की गई फाइलें",
+      "submitButton": "सत्यापन के लिए जमा करें",
+      "submitSuccess": "व्यापारिक प्रोफ़ाइल सत्यापन के लिए जमा की गई। अनुमोदन के बाद आपको सूचित किया जाएगा।"
+    },
+    "loginRequired": {
+      "title": "लॉगिन आवश्यक",
+      "subtitle": "BRPP प्रोग्राम विवरण तक पहुंचने के लिए कृपया लॉगिन करें या साइन अप करें।"
+    }
+  },
+  "b2bCatalog": {
+    "title": "B2B थोक कैटलॉग",
+    "subtitle": "BIDUA Retail Partnership Program (BRPP) सदस्यों के लिए विशेष मूल्य निर्धारण।",
+    "minOrderInfo": "B2B खरीदारी के लिए न्यूनतम ऑर्डर मूल्य:",
+    "mrp": "MRP",
+    "b2bPrice": "B2B मूल्य",
+    "minOrderQty": "न्यूनतम ऑर्डर मात्रा",
+    "units": "इकाइयां",
+    "addToOrder": "ऑर्डर में जोड़ें",
+    "loginRequired": {
+      "title": "लॉगिन आवश्यक",
+      "subtitle": "B2B कैटलॉग देखने के लिए कृपया लॉगिन करें या साइन अप करें।"
+    }
+  },
+  "partnerWallet": {
+    "title": "पार्टनर वॉलेट और कमाई",
+    "subtitle": "अपना उपलब्ध बैलेंस, लंबित रियलाइज़ेशन और लेनदेन इतिहास देखें।",
+    "availableBalance": "उपलब्ध बैलेंस",
+    "escrowPending": "एस्क्रो पेंडिंग",
+    "totalRealized": "कुल रियलाइज़्ड",
+    "withdrawFunds": "अपनी कमाई निकालें",
+    "withdrawDescription": "अपने पंजीकृत बैंक खाते या UPI में अपना उपलब्ध बैलेंस ट्रांसफर करें।",
+    "requestWithdrawal": "निकासी का अनुरोध करें",
+    "realizationHistory": "रियलाइज़ेशन इतिहास",
+    "table": {
+      "sku": "उत्पाद SKU",
+      "serialNo": "सीरियल नं.",
+      "b2cPrice": "B2C मूल्य",
+      "partnerCost": "पार्टनर लागत",
+      "profitShare": "लाभ हिस्सा",
+      "costReimbursed": "लागत प्रतिपूर्ति",
+      "status": "स्थिति",
+      "date": "दिनांक"
+    },
+    "status": {
+      "confirmed": "पुष्ट",
+      "escrow_pending": "लंबित",
+      "reversed": "रिवर्स"
+    },
+    "loginRequired": {
+      "title": "लॉगिन आवश्यक",
+      "subtitle": "अपना पार्टनर वॉलेट देखने के लिए कृपया लॉगिन करें या साइन अप करें।"
+    }
+  },
+  "userProfile": {
+    "title": "उपयोगकर्ता प्रोफ़ाइल",
+    "subtitle": "अपने खाते का प्रबंधन करें और अपने विवरण देखें।",
+    "personalInfo": "व्यक्तिगत जानकारी",
+    "email": "ईमेल",
+    "phone": "फोन",
+    "memberStatus": "सदस्य स्थिति",
+    "brppMember": "BRPP सदस्य",
+    "standardUser": "मानक उपयोगकर्ता",
+    "myWallet": "मेरा वॉलेट",
+    "viewEarnings": "अपनी कमाई और लेनदेन देखें",
+    "b2bOrders": "B2B ऑर्डर",
+    "placeB2bOrder": "नए B2B ऑर्डर दें",
+    "brppProgram": "BRPP प्रोग्राम",
+    "joinBrpp": "BRPP सदस्यता में शामिल हों या प्रबंधित करें",
+    "notLoggedIn": {
+      "title": "पहुंच अस्वीकृत",
+      "subtitle": "अपनी उपयोगकर्ता प्रोफ़ाइल देखने के लिए कृपया लॉगिन करें।"
+    }
   }
 }

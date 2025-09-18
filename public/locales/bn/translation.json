@@ -5,7 +5,10 @@
     "ingredients": "উপাদান",
     "details": "বিবরণ",
     "reviews": "পর্যালোচনা",
-    "costCalculator": "খরচ ক্যালকুলেটর"
+    "costCalculator": "খরচ ক্যালকুলেটর",
+    "joinBrpp": "Join BRPP",
+    "b2bCatalog": "B2B Catalog",
+    "partnerWallet": "Partner Wallet"
   },
   "hero": {
     "premiumSkincare": "প্রিমিয়াম স্কিনকেয়ার",
@@ -434,6 +437,153 @@
     "back": "ফিরে যান",
     "continue": "চালিয়ে যান",
     "submit": "জমা দিন",
-    "reset": "রিসেট করুন"
+    "reset": "রিসেট করুন",
+    "backToHome": "হোমে ফিরে যান",
+    "optional": "ঐচ্ছিক",
+    "logout": "লগআউট"
+  },
+  "login": {
+    "title": "আপনার অ্যাকাউন্টে লগইন করুন",
+    "subtitle": "আপনার ব্যক্তিগত ড্যাশবোর্ড এবং BRPP বৈশিষ্ট্যগুলি অ্যাক্সেস করুন",
+    "emailOrPhone": "ইমেইল বা ফোন নম্বর",
+    "enterEmailOrPhone": "আপনার ইমেইল বা ফোন লিখুন",
+    "password": "পাসওয়ার্ড",
+    "enterPassword": "আপনার পাসওয়ার্ড লিখুন",
+    "loginButton": "লগইন",
+    "noAccount": "কোন অ্যাকাউন্ট নেই?",
+    "signupLink": "সাইন আপ",
+    "invalidCredentials": "ভুল ক্রেডেনশিয়াল। অনুগ্রহ করে আবার চেষ্টা করুন।",
+    "successMessage": "লগইন সফল!",
+    "demoUser": "ডেমো ইউজার আইডি",
+    "demoPassword": "ডেমো পাসওয়ার্ড"
+  },
+  "signup": {
+    "title": "আপনার অ্যাকাউন্ট তৈরি করুন",
+    "subtitle": "BIDUA Beauty-তে যোগ দিন এবং একচেটিয়া সুবিধা আনলক করুন",
+    "email": "ইমেইল ঠিকানা",
+    "enterEmail": "আপনার ইমেইল ঠিকানা লিখুন",
+    "phone": "ফোন নম্বর",
+    "enterPhone": "আপনার ফোন নম্বর লিখুন (ঐচ্ছিক)",
+    "password": "পাসওয়ার্ড",
+    "enterPassword": "একটি পাসওয়ার্ড তৈরি করুন",
+    "confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
+    "signupButton": "সাইন আপ",
+    "haveAccount": "ইতিমধ্যে অ্যাকাউন্ট আছে?",
+    "loginLink": "লগইন",
+    "passwordMismatch": "পাসওয়ার্ড মিলছে না!",
+    "successMessage": "অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!"
+  },
+  "brpp": {
+    "join": {
+      "title": "BIDUA Retail Partnership Program (BRPP) এ যোগ দিন",
+      "subtitle": "একজন মূল্যবান অংশীদার হয়ে উঠুন এবং BIDUA Beauty এর সাথে একচেটিয়া B2B সুবিধা আনলক করুন।",
+      "benefitsTitle": "BRPP সদস্যপদের সুবিধা",
+      "benefit1": "সমস্ত BIDUA Beauty পণ্যে একচেটিয়া B2B পাইকারি মূল্যে অ্যাক্সেস।",
+      "benefit2": "B2C বিক্রয়ে লাভ ভাগাভাগি সহ কনসাইনমেন্ট মডেলে অংশগ্রহণ।",
+      "benefit3": "অগ্রাধিকার স্টক বরাদ্দ এবং নিবেদিত অংশীদার সহায়তা।",
+      "annualFee": "বার্ষিক সদস্যপদ ফি:",
+      "feeDetails": "₹৪,৯৯৯ (সমস্ত কর সহ)। ৩৬৫ দিনের জন্য বৈধ।",
+      "subscribeButton": "এখনই সাবস্ক্রাইব করুন - ₹৪,৯৯৯",
+      "paymentInitiated": "পেমেন্ট শুরু হয়েছে। অনুগ্রহ করে পেমেন্ট প্রক্রিয়া সম্পূর্ণ করুন।"
+    },
+    "businessProfile": {
+      "title": "ব্যবসায়িক প্রোফাইল এবং KYC",
+      "subtitle": "B2B ক্রয় সক্রিয় করতে যাচাইয়ের জন্য আপনার ব্যবসায়িক বিবরণ প্রদান করুন।",
+      "firmName": "ফার্ম/কোম্পানির নাম",
+      "enterFirmName": "আপনার ফার্ম বা কোম্পানির নাম লিখুন",
+      "firmType": "ফার্মের ধরন",
+      "firmTypes": {
+        "proprietor": "মালিকানা",
+        "partnership": "অংশীদারিত্ব",
+        "llp": "LLP",
+        "pvtLtd": "Pvt Ltd",
+        "other": "অন্যান্য"
+      },
+      "address": "ব্যবসায়িক ঠিকানা",
+      "enterAddress": "আপনার সম্পূর্ণ ব্যবসায়িক ঠিকানা লিখুন",
+      "pan": "PAN নম্বর",
+      "enterPan": "আপনার PAN নম্বর লিখুন",
+      "gstin": "GSTIN",
+      "enterGstin": "আপনার GSTIN লিখুন (ঐচ্ছিক)",
+      "bankAccount": "ব্যাংক অ্যাকাউন্ট নম্বর",
+      "enterBankAccount": "আপনার ব্যাংক অ্যাকাউন্ট নম্বর লিখুন",
+      "ifsc": "IFSC কোড",
+      "enterIfsc": "আপনার IFSC কোড লিখুন",
+      "kycDocs": "KYC নথি আপলোড করুন",
+      "clickToUpload": "আপলোড করতে ক্লিক করুন",
+      "orDragAndDrop": "বা ড্র্যাগ এবং ড্রপ করুন",
+      "fileTypes": "PAN কার্ড, GST সার্টিফিকেট, বাতিল চেক (PDF, JPG, PNG)",
+      "uploadedFiles": "আপলোড করা ফাইল",
+      "submitButton": "যাচাইয়ের জন্য জমা দিন",
+      "submitSuccess": "ব্যবসায়িক প্রোফাইল যাচাইয়ের জন্য জমা দেওয়া হয়েছে। অনুমোদনের পরে আপনাকে অবহিত করা হবে।"
+    },
+    "loginRequired": {
+      "title": "লগইন প্রয়োজন",
+      "subtitle": "BRPP প্রোগ্রামের বিবরণ অ্যাক্সেস করতে অনুগ্রহ করে লগইন করুন বা সাইন আপ করুন।"
+    }
+  },
+  "b2bCatalog": {
+    "title": "B2B পাইকারি ক্যাটালগ",
+    "subtitle": "BIDUA Retail Partnership Program (BRPP) সদস্যদের জন্য একচেটিয়া মূল্য।",
+    "minOrderInfo": "B2B ক্রয়ের জন্য ন্যূনতম অর্ডার মূল্য:",
+    "mrp": "MRP",
+    "b2bPrice": "B2B মূল্য",
+    "minOrderQty": "ন্যূনতম অর্ডার পরিমাণ",
+    "units": "ইউনিট",
+    "addToOrder": "অর্ডারে যোগ করুন",
+    "loginRequired": {
+      "title": "লগইন প্রয়োজন",
+      "subtitle": "B2B ক্যাটালগ দেখতে অনুগ্রহ করে লগইন করুন বা সাইন আপ করুন।"
+    }
+  },
+  "partnerWallet": {
+    "title": "পার্টনার ওয়ালেট এবং আয়",
+    "subtitle": "আপনার উপলব্ধ ব্যালেন্স, মুলতুবি রিয়েলাইজেশন এবং লেনদেনের ইতিহাস দেখুন।",
+    "availableBalance": "উপলব্ধ ব্যালেন্স",
+    "escrowPending": "এসক্রো পেন্ডিং",
+    "totalRealized": "মোট রিয়েলাইজড",
+    "withdrawFunds": "আপনার আয় তুলুন",
+    "withdrawDescription": "আপনার নিবন্ধিত ব্যাংক অ্যাকাউন্ট বা UPI-তে আপনার উপলব্ধ ব্যালেন্স স্থানান্তর করুন।",
+    "requestWithdrawal": "উত্তোলনের অনুরোধ করুন",
+    "realizationHistory": "রিয়েলাইজেশন ইতিহাস",
+    "table": {
+      "sku": "পণ্য SKU",
+      "serialNo": "সিরিয়াল নং",
+      "b2cPrice": "B2C মূল্য",
+      "partnerCost": "পার্টনার খরচ",
+      "profitShare": "লাভের অংশ",
+      "costReimbursed": "খরচ ফেরত",
+      "status": "অবস্থা",
+      "date": "তারিখ"
+    },
+    "status": {
+      "confirmed": "নিশ্চিত",
+      "escrow_pending": "মুলতুবি",
+      "reversed": "বিপরীত"
+    },
+    "loginRequired": {
+      "title": "লগইন প্রয়োজন",
+      "subtitle": "আপনার পার্টনার ওয়ালেট দেখতে অনুগ্রহ করে লগইন করুন বা সাইন আপ করুন।"
+    }
+  },
+  "userProfile": {
+    "title": "ব্যবহারকারী প্রোফাইল",
+    "subtitle": "আপনার অ্যাকাউন্ট পরিচালনা করুন এবং আপনার বিবরণ দেখুন।",
+    "personalInfo": "ব্যক্তিগত তথ্য",
+    "email": "ইমেইল",
+    "phone": "ফোন",
+    "memberStatus": "সদস্য অবস্থা",
+    "brppMember": "BRPP সদস্য",
+    "standardUser": "স্ট্যান্ডার্ড ব্যবহারকারী",
+    "myWallet": "আমার ওয়ালেট",
+    "viewEarnings": "আপনার আয় এবং লেনদেন দেখুন",
+    "b2bOrders": "B2B অর্ডার",
+    "placeB2bOrder": "নতুন B2B অর্ডার দিন",
+    "brppProgram": "BRPP প্রোগ্রাম",
+    "joinBrpp": "BRPP সদস্যপদে যোগ দিন বা পরিচালনা করুন",
+    "notLoggedIn": {
+      "title": "অ্যাক্সেস অস্বীকৃত",
+      "subtitle": "আপনার ব্যবহারকারী প্রোফাইল দেখতে অনুগ্রহ করে লগইন করুন।"
+    }
   }
 }

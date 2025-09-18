@@ -5,7 +5,10 @@
     "ingredients": "Ingredients",
     "details": "Details",
     "reviews": "Reviews",
-    "costCalculator": "Cost Calculator"
+    "costCalculator": "Cost Calculator",
+    "joinBrpp": "Join BRPP",
+    "b2bCatalog": "B2B Catalog",
+    "partnerWallet": "Partner Wallet"
   },
   "hero": {
     "premiumSkincare": "Premium Skincare",
@@ -447,6 +450,153 @@
     "back": "Back",
     "continue": "Continue",
     "submit": "Submit",
-    "reset": "Reset"
+    "reset": "Reset",
+    "backToHome": "Back to Home",
+    "optional": "Optional",
+    "logout": "Logout"
+  },
+  "login": {
+    "title": "Login to Your Account",
+    "subtitle": "Access your personalized dashboard and BRPP features",
+    "emailOrPhone": "Email or Phone Number",
+    "enterEmailOrPhone": "Enter your email or phone",
+    "password": "Password",
+    "enterPassword": "Enter your password",
+    "loginButton": "Login",
+    "noAccount": "Don't have an account?",
+    "signupLink": "Sign Up",
+    "invalidCredentials": "Invalid credentials. Please try again.",
+    "successMessage": "Login successful!",
+    "demoUser": "Demo User ID",
+    "demoPassword": "Demo Password"
+  },
+  "signup": {
+    "title": "Create Your Account",
+    "subtitle": "Join BIDUA Beauty and unlock exclusive benefits",
+    "email": "Email Address",
+    "enterEmail": "Enter your email address",
+    "phone": "Phone Number",
+    "enterPhone": "Enter your phone number (optional)",
+    "password": "Password",
+    "enterPassword": "Create a password",
+    "confirmPassword": "Confirm Password",
+    "signupButton": "Sign Up",
+    "haveAccount": "Already have an account?",
+    "loginLink": "Login",
+    "passwordMismatch": "Passwords do not match!",
+    "successMessage": "Account created successfully!"
+  },
+  "brpp": {
+    "join": {
+      "title": "Join BIDUA Retail Partnership Program (BRPP)",
+      "subtitle": "Become a valued partner and unlock exclusive B2B benefits with BIDUA Beauty.",
+      "benefitsTitle": "Benefits of BRPP Membership",
+      "benefit1": "Access to exclusive B2B wholesale pricing on all BIDUA Beauty products.",
+      "benefit2": "Participate in the consignment model with profit sharing on B2C sales.",
+      "benefit3": "Priority stock allocation and dedicated partner support.",
+      "annualFee": "Annual Membership Fee:",
+      "feeDetails": "₹4,999 (inclusive of all taxes). Valid for 365 days.",
+      "subscribeButton": "Subscribe Now - ₹4,999",
+      "paymentInitiated": "Payment initiated. Please complete the payment process."
+    },
+    "businessProfile": {
+      "title": "Business Profile & KYC",
+      "subtitle": "Please provide your business details for verification to activate B2B purchasing.",
+      "firmName": "Firm/Company Name",
+      "enterFirmName": "Enter your firm or company name",
+      "firmType": "Firm Type",
+      "firmTypes": {
+        "proprietor": "Proprietor",
+        "partnership": "Partnership",
+        "llp": "LLP",
+        "pvtLtd": "Pvt Ltd",
+        "other": "Other"
+      },
+      "address": "Business Address",
+      "enterAddress": "Enter your full business address",
+      "pan": "PAN Number",
+      "enterPan": "Enter your PAN number",
+      "gstin": "GSTIN",
+      "enterGstin": "Enter your GSTIN (optional)",
+      "bankAccount": "Bank Account Number",
+      "enterBankAccount": "Enter your bank account number",
+      "ifsc": "IFSC Code",
+      "enterIfsc": "Enter your IFSC code",
+      "kycDocs": "Upload KYC Documents",
+      "clickToUpload": "Click to upload",
+      "orDragAndDrop": "or drag and drop",
+      "fileTypes": "PAN Card, GST Certificate, Cancelled Cheque (PDF, JPG, PNG)",
+      "uploadedFiles": "Uploaded Files",
+      "submitButton": "Submit for Verification",
+      "submitSuccess": "Business profile submitted for verification. You will be notified once approved."
+    },
+    "loginRequired": {
+      "title": "Login Required",
+      "subtitle": "Please log in or sign up to access the BRPP program details."
+    }
+  },
+  "b2bCatalog": {
+    "title": "B2B Wholesale Catalog",
+    "subtitle": "Exclusive pricing for BIDUA Retail Partnership Program (BRPP) members.",
+    "minOrderInfo": "Minimum order value for B2B purchases:",
+    "mrp": "MRP",
+    "b2bPrice": "B2B Price",
+    "minOrderQty": "Min. Order Quantity",
+    "units": "units",
+    "addToOrder": "Add to Order",
+    "loginRequired": {
+      "title": "Login Required",
+      "subtitle": "Please log in or sign up to view the B2B Catalog."
+    }
+  },
+  "partnerWallet": {
+    "title": "Partner Wallet & Earnings",
+    "subtitle": "View your available balance, pending realizations, and transaction history.",
+    "availableBalance": "Available Balance",
+    "escrowPending": "Escrow Pending",
+    "totalRealized": "Total Realized",
+    "withdrawFunds": "Withdraw Your Earnings",
+    "withdrawDescription": "Transfer your available balance to your registered bank account or UPI.",
+    "requestWithdrawal": "Request Withdrawal",
+    "realizationHistory": "Realization History",
+    "table": {
+      "sku": "Product SKU",
+      "serialNo": "Serial No.",
+      "b2cPrice": "B2C Price",
+      "partnerCost": "Partner Cost",
+      "profitShare": "Profit Share",
+      "costReimbursed": "Cost Reimbursed",
+      "status": "Status",
+      "date": "Date"
+    },
+    "status": {
+      "confirmed": "Confirmed",
+      "escrow_pending": "Pending",
+      "reversed": "Reversed"
+    },
+    "loginRequired": {
+      "title": "Login Required",
+      "subtitle": "Please log in or sign up to view your Partner Wallet."
+    }
+  },
+  "userProfile": {
+    "title": "User Profile",
+    "subtitle": "Manage your account and view your details.",
+    "personalInfo": "Personal Information",
+    "email": "Email",
+    "phone": "Phone",
+    "memberStatus": "Member Status",
+    "brppMember": "BRPP Member",
+    "standardUser": "Standard User",
+    "myWallet": "My Wallet",
+    "viewEarnings": "View your earnings and transactions",
+    "b2bOrders": "B2B Orders",
+    "placeB2bOrder": "Place new B2B orders",
+    "brppProgram": "BRPP Program",
+    "joinBrpp": "Join or manage BRPP membership",
+    "notLoggedIn": {
+      "title": "Access Denied",
+      "subtitle": "Please log in to view your user profile."
+    }
   }
 }

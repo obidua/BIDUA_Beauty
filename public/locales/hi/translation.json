@@ -199,12 +199,15 @@
     "quantity": "मात्रा:",
     "orderSummary": "ऑर्डर सारांश",
     "subtotal": "उप-योग",
+    "b2bSubtotal": "B2B उप-योग",
     "shipping": "शिपिंग",
     "total": "कुल",
     "proceedToCheckout": "चेकआउट पर जाएं",
     "secureCheckout": "✓ सुरक्षित चेकआउट",
     "fastDelivery": "✓ तेज़ डिलीवरी",
-    "returns": "✓ 30-दिन रिटर्न"
+    "returns": "✓ 30-दिन रिटर्न",
+    "b2bMinOrderWarning": "B2B ऑर्डर के लिए न्यूनतम {{minOrder}} की आवश्यकता है। वर्तमान B2B कुल: {{currentTotal}}।",
+    "b2bMinOrderAlert": "कृपया सुनिश्चित करें कि आपका B2B ऑर्डर {{minOrder}} के न्यूनतम मूल्य को पूरा करता है।"
   },
   "checkout": {
     "title": "सुरक्षित चेकआउट",
@@ -232,7 +235,9 @@
       "protection": "✓ आपकी व्यक्तिगत जानकारी सुरक्षित है",
       "guarantee": "✓ 30-दिन मनी-बैक गारंटी",
       "delivery": "✓ तेज़ और विश्वसनीय डिलीवरी"
-    }
+    },
+    "b2bMinOrderRedirect": "आपका B2B ऑर्डर {{minOrder}} के न्यूनतम मूल्य को पूरा नहीं करता। कृपया अपना कार्ट समायोजित करें।",
+    "b2bMinOrderAlert": "आपका B2B ऑर्डर {{minOrder}} के न्यूनतम मूल्य को पूरा नहीं करता। कृपया अपना कार्ट समायोजित करें।"
   },
   "confirmation": {
     "title": "ऑर्डर कन्फर्म!",

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, CreditCard, Shield, Truck } from 'lucide-react';
@@ -8,9 +8,22 @@ import { PRODUCT_IMAGES, PRODUCT_ALT_TEXT } from '../data/productImages';
 
 const CheckoutPage = () => {
   const { t } = useTranslation();
-  const { cartItems, getTotalPrice, getSubtotal, getShippingCost, clearCart } = useCart();
+  const { cartItems, getTotalPrice, getSubtotal, getShippingCost, clearCart, getB2bSubtotal } = useCart();
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
+
+  const MIN_B2B_ORDER_VALUE = 20000;
+  const hasB2bItems = cartItems.some(item => item.type === 'b2b');
+  const currentB2bSubtotal = getB2bSubtotal();
+  const isB2bMinOrderMet = currentB2bSubtotal >= MIN_B2B_ORDER_VALUE;
+
+  // Redirect if B2B items are present but min order not met
+  useEffect(() => {
+    if (hasB2bItems && !isB2bMinOrderMet) {
+      alert(t('checkout.b2bMinOrderRedirect', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE) }));
+      navigate('/cart');
+    }
+  }, [hasB2bItems, isB2bMinOrderMet, navigate, t]);
 
   // Static customer details
   const [customerDetails, setCustomerDetails] = useState({
@@ -35,6 +48,14 @@ const CheckoutPage = () => {
 
   const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Prevent order if B2B min order not met
+    if (hasB2bItems && !isB2bMinOrderMet) {
+      alert(t('checkout.b2bMinOrderAlert', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE) }));
+      setIsProcessing(false);
+      return;
+    }
+    
     setIsProcessing(true);
 
     // Simulate payment processing
@@ -237,12 +258,14 @@ const CheckoutPage = () => {
                       />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-white font-medium text-xs sm:text-sm lg:text-base">{item.name}</h3>
+                      <h3 className="text-white font-medium text-xs sm:text-sm lg:text-base">{item.name} {item.type === 'b2b' && '(B2B)'}</h3>
                       <p className="text-gray-400 text-xs">{t('cart.quantity')} {item.quantity}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-amber-400 font-bold text-xs sm:text-sm lg:text-base">{formatPrice(item.price * item.quantity)}</p>
-                      <p className="text-gray-400 text-xs line-through">{formatPrice(item.originalPrice * item.quantity)}</p>
+                      {item.price < item.originalPrice && (
+                        <p className="text-gray-400 text-xs line-through">{formatPrice(item.originalPrice * item.quantity)}</p>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -253,6 +276,12 @@ const CheckoutPage = () => {
                   <span>{t('cart.subtotal')}</span>
                   <span>{formatPrice(getTotalPrice())}</span>
                 </div>
+                {hasB2bItems && (
+                  <div className="flex justify-between text-gray-300 text-xs sm:text-sm lg:text-base">
+                    <span>{t('cart.b2bSubtotal')}</span>
+                    <span>{formatPrice(currentB2bSubtotal)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-gray-300 text-xs sm:text-sm lg:text-base">
                   <span>{t('cart.shipping')}</span>
                   <span className="text-green-400">{t('confirmation.free')}</span>
@@ -273,7 +302,7 @@ const CheckoutPage = () => {
             {/* Place Order Button */}
             <button
               onClick={handlePlaceOrder}
-              disabled={isProcessing}
+              disabled={isProcessing || (hasB2bItems && !isB2bMinOrderMet)}
               className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 lg:py-4 rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base lg:text-xl hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               {isProcessing ? (

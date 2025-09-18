@@ -199,12 +199,15 @@
     "quantity": "Quantity:",
     "orderSummary": "Order Summary",
     "subtotal": "Subtotal",
+    "b2bSubtotal": "B2B Subtotal",
     "shipping": "Shipping",
     "total": "Total",
     "proceedToCheckout": "Proceed to Checkout",
     "secureCheckout": "✓ Secure Checkout",
     "fastDelivery": "✓ Fast Delivery",
-    "returns": "✓ 30-Day Returns"
+    "returns": "✓ 30-Day Returns",
+    "b2bMinOrderWarning": "For B2B orders, a minimum total of {{minOrder}} is required. Current B2B total: {{currentTotal}}.",
+    "b2bMinOrderAlert": "Please ensure your B2B order meets the minimum value of {{minOrder}} to proceed."
   },
   "checkout": {
     "title": "Secure Checkout",
@@ -233,7 +236,9 @@
       "protection": "✓ Your personal information is protected",
       "guarantee": "✓ 30-day money-back guarantee",
       "delivery": "✓ Fast and reliable delivery"
-    }
+    },
+    "b2bMinOrderRedirect": "Your B2B order does not meet the minimum value of {{minOrder}}. Please adjust your cart.",
+    "b2bMinOrderAlert": "Your B2B order does not meet the minimum value of {{minOrder}}. Please adjust your cart."
   },
   "confirmation": {
     "title": "Order Confirmed!",

@@ -8,6 +8,7 @@ export interface CartItem {
   originalPrice: number;
   image: string;
   quantity: number;
+  type?: 'b2c' | 'b2b';
 }
 
 interface CartContextType {
@@ -20,6 +21,7 @@ interface CartContextType {
   getTotalPrice: () => number;
   getShippingCost: () => number;
   getSubtotal: () => number;
+  getB2bSubtotal: () => number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -53,7 +55,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         return [...prevItems, { 
           ...item, 
           quantity: 1,
-          image: item.image || PRODUCT_IMAGES[0] // Fallback to first image
+          image: item.image || PRODUCT_IMAGES[0], // Fallback to first image
+          type: item.type || 'b2c' // Default to 'b2c' if not specified
         }];
       }
     });
@@ -88,6 +91,15 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
+  const getB2bSubtotal = () => {
+    return cartItems.reduce((total, item) => {
+      if (item.type === 'b2b') {
+        return total + (item.price * item.quantity);
+      }
+      return total;
+    }, 0);
+  };
+
   const getShippingCost = () => {
     const totalItems = getTotalItems();
     
@@ -117,6 +129,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     getTotalPrice,
     getShippingCost,
     getSubtotal,
+    getB2bSubtotal,
   };
 
   return (

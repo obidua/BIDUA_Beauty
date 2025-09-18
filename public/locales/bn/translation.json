@@ -199,12 +199,15 @@
     "quantity": "পরিমাণ:",
     "orderSummary": "অর্ডার সারসংক্ষেপ",
     "subtotal": "উপমোট",
+    "b2bSubtotal": "B2B উপমোট",
     "shipping": "শিপিং",
     "total": "মোট",
     "proceedToCheckout": "চেকআউটে এগিয়ে যান",
     "secureCheckout": "✓ নিরাপদ চেকআউট",
     "fastDelivery": "✓ দ্রুত ডেলিভারি",
-    "returns": "✓ ৩০-দিন রিটার্ন"
+    "returns": "✓ ৩০-দিন রিটার্ন",
+    "b2bMinOrderWarning": "B2B অর্ডারের জন্য ন্যূনতম {{minOrder}} প্রয়োজন। বর্তমান B2B মোট: {{currentTotal}}।",
+    "b2bMinOrderAlert": "অনুগ্রহ করে নিশ্চিত করুন যে আপনার B2B অর্ডার {{minOrder}} এর ন্যূনতম মূল্য পূরণ করে।"
   },
   "checkout": {
     "title": "নিরাপদ চেকআউট",
@@ -233,7 +236,9 @@
       "protection": "✓ আপনার ব্যক্তিগত তথ্য সুরক্ষিত",
       "guarantee": "✓ ৩০-দিন মানি-ব্যাক গ্যারান্টি",
       "delivery": "✓ দ্রুত এবং নির্ভরযোগ্য ডেলিভারি"
-    }
+    },
+    "b2bMinOrderRedirect": "আপনার B2B অর্ডার {{minOrder}} এর ন্যূনতম মূল্য পূরণ করে না। অনুগ্রহ করে আপনার কার্ট সামঞ্জস্য করুন।",
+    "b2bMinOrderAlert": "আপনার B2B অর্ডার {{minOrder}} এর ন্যূনতম মূল্য পূরণ করে না। অনুগ্রহ করে আপনার কার্ট সামঞ্জস্য করুন।"
   },
   "confirmation": {
     "title": "অর্ডার নিশ্চিত!",

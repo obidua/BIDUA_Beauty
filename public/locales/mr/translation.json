@@ -199,12 +199,15 @@
     "quantity": "प्रमाण:",
     "orderSummary": "ऑर्डर सारांश",
     "subtotal": "उप-एकूण",
+    "b2bSubtotal": "B2B उप-एकूण",
     "shipping": "शिपिंग",
     "total": "एकूण",
     "proceedToCheckout": "चेकआउटकडे जा",
     "secureCheckout": "✓ सुरक्षित चेकआउट",
     "fastDelivery": "✓ जलद डिलिव्हरी",
-    "returns": "✓ ३०-दिवस रिटर्न"
+    "returns": "✓ ३०-दिवस रिटर्न",
+    "b2bMinOrderWarning": "B2B ऑर्डरसाठी किमान {{minOrder}} आवश्यक आहे. सध्याचा B2B एकूण: {{currentTotal}}.",
+    "b2bMinOrderAlert": "कृपया खात्री करा की तुमचा B2B ऑर्डर {{minOrder}} चे किमान मूल्य पूर्ण करतो."
   },
   "checkout": {
     "title": "सुरक्षित चेकआउट",
@@ -233,7 +236,9 @@
       "protection": "✓ आपली वैयक्तिक माहिती संरक्षित आहे",
       "guarantee": "✓ ३०-दिवस मनी-बॅक गॅरंटी",
       "delivery": "✓ जलद आणि विश्वसनीय डिलिव्हरी"
-    }
+    },
+    "b2bMinOrderRedirect": "तुमचा B2B ऑर्डर {{minOrder}} चे किमान मूल्य पूर्ण करत नाही. कृपया तुमचे कार्ट समायोजित करा.",
+    "b2bMinOrderAlert": "तुमचा B2B ऑर्डर {{minOrder}} चे किमान मूल्य पूर्ण करत नाही. कृपया तुमचे कार्ट समायोजित करा."
   },
   "confirmation": {
     "title": "ऑर्डर पुष्टी!",

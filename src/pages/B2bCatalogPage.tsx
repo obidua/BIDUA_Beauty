@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ShoppingBag, Package, DollarSign, LogIn } from 'lucide-react';
 import ProductImageSlider from '../components/ProductImageSlider';
 import { PRODUCT_IMAGES } from '../data/productImages';
 import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/CartContext';
 
 const b2bProducts = [
   {
     id: 'bidua-radiance-15',
     name: 'BIDUA Radiance 15 Cream',
-    b2bPrice: 1000,
+    b2bPrice: 1150,
     mrp: 4999,
     minOrderQty: 10,
     image: PRODUCT_IMAGES[0],
@@ -39,6 +40,8 @@ const b2bProducts = [
 const B2bCatalogPage = () => {
   const { t } = useTranslation();
   const { isLoggedIn } = useAuth();
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -142,7 +145,21 @@ const B2bCatalogPage = () => {
                 {t('b2bCatalog.minOrderQty')}: <span className="font-bold">{product.minOrderQty}</span> {t('b2bCatalog.units')}
               </p>
 
-              <button className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+              <button
+                onClick={() => {
+                  const itemToAdd = {
+                    id: product.id,
+                    name: product.name,
+                    price: product.b2bPrice,
+                    originalPrice: product.mrp,
+                    image: product.image,
+                    type: 'b2b' as const,
+                  };
+                  addToCart(itemToAdd);
+                  navigate('/cart');
+                }}
+                className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+              >
                 <Package className="w-5 h-5" />
                 <span>{t('b2bCatalog.addToOrder')}</span>
               </button>

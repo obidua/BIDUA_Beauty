@@ -8,7 +8,12 @@ import { PRODUCT_IMAGES, PRODUCT_ALT_TEXT } from '../data/productImages';
 
 const CartPage = () => {
   const { t } = useTranslation();
-  const { cartItems, updateQuantity, removeFromCart, getTotalPrice, getSubtotal, getShippingCost } = useCart();
+  const { cartItems, updateQuantity, removeFromCart, getTotalPrice, getSubtotal, getShippingCost, getB2bSubtotal } = useCart();
+
+  const MIN_B2B_ORDER_VALUE = 20000;
+  const hasB2bItems = cartItems.some(item => item.type === 'b2b');
+  const currentB2bSubtotal = getB2bSubtotal();
+  const isB2bMinOrderMet = currentB2bSubtotal >= MIN_B2B_ORDER_VALUE;
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -56,6 +61,13 @@ const CartPage = () => {
           <p className="text-gray-300 text-lg">{t('cart.subtitle')}</p>
         </div>
 
+        {/* B2B Minimum Order Warning */}
+        {hasB2bItems && !isB2bMinOrderMet && (
+          <div className="bg-red-500/20 border border-red-500/30 rounded-2xl p-4 text-center text-red-300 mb-8">
+            <p>{t('cart.b2bMinOrderWarning', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE), currentTotal: formatPrice(currentB2bSubtotal) })}</p>
+          </div>
+        )}
+
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4 lg:space-y-6">
@@ -78,10 +90,19 @@ const CartPage = () => {
                     <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 lg:mb-3">{item.name}</h3>
                     <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3 mb-3 lg:mb-4">
                       <span className="text-lg sm:text-xl lg:text-2xl font-bold text-amber-400">{formatPrice(item.price)}</span>
-                      <span className="text-sm sm:text-base text-gray-400 line-through">{formatPrice(item.originalPrice)}</span>
-                      <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded-full text-xs font-bold w-fit">
-                        {Math.round((1 - item.price / item.originalPrice) * 100)}% OFF
-                      </span>
+                      {item.price < item.originalPrice && (
+                        <span className="text-sm sm:text-base text-gray-400 line-through">{formatPrice(item.originalPrice)}</span>
+                      )}
+                      {item.price < item.originalPrice && (
+                        <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded-full text-xs font-bold w-fit">
+                          {Math.round((1 - item.price / item.originalPrice) * 100)}% OFF
+                        </span>
+                      )}
+                      {item.type === 'b2b' && (
+                        <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full text-xs font-bold w-fit">
+                          B2B
+                        </span>
+                      )}
                     </div>
 
                     {/* Quantity Controls */}
@@ -127,7 +148,7 @@ const CartPage = () => {
               <div className="space-y-2 sm:space-y-3 lg:space-y-4 mb-4 lg:mb-6">
                 {cartItems.map((item) => (
                   <div key={item.id} className="flex justify-between text-gray-300 text-xs sm:text-sm lg:text-base">
-                    <span className="flex-1 pr-2">{item.name} × {item.quantity}</span>
+                    <span className="flex-1 pr-2">{item.name} × {item.quantity} {item.type === 'b2b' && '(B2B)'}</span>
                     <span className="font-medium">{formatPrice(item.price * item.quantity)}</span>
                   </div>
                 ))}
@@ -138,6 +159,12 @@ const CartPage = () => {
                   <span>{t('cart.subtotal')}</span>
                   <span>{formatPrice(getSubtotal())}</span>
                 </div>
+                {hasB2bItems && (
+                  <div className="flex justify-between text-gray-300 mb-2 text-xs sm:text-sm lg:text-base">
+                    <span>{t('cart.b2bSubtotal')}</span>
+                    <span>{formatPrice(currentB2bSubtotal)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-gray-300 mb-2 text-xs sm:text-sm lg:text-base">
                   <span>{t('cart.shipping')}</span>
                   <span>{formatPrice(getShippingCost())}</span>
@@ -150,7 +177,13 @@ const CartPage = () => {
 
               <Link
                 to="/checkout"
-                className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 lg:py-4 rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base lg:text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105 text-center block"
+                className={`w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black py-3 lg:py-4 rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base lg:text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105 text-center block ${hasB2bItems && !isB2bMinOrderMet ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={(e) => {
+                  if (hasB2bItems && !isB2bMinOrderMet) {
+                    e.preventDefault();
+                    alert(t('cart.b2bMinOrderAlert', { minOrder: formatPrice(MIN_B2B_ORDER_VALUE) }));
+                  }
+                }}
               >
                 {t('cart.proceedToCheckout')}
               </Link>

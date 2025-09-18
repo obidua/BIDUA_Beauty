@@ -173,104 +173,6 @@
     "feature2": "Fast Worldwide Delivery",
     "feature3": "Easy Returns & Exchanges"
   },
-  "footer": {
-    "brandName": "BIDUA",
-    "brandSuffix": "BEAUTY",
-    "description": "Premium skincare crafted with the finest ingredients and cutting-edge technology. Experience the luxury of perfect skin.",
-    "quickLinks": "Quick Links",
-    "contactUs": "Contact Us",
-    "email": "support@biduaindustries.com",
-    "phone": "+91 80 4567 8900",
-    "address": "Plot No. 456, Industrial Area, Phase 2, Electronic City, Bengaluru, Karnataka 560100",
-    "copyright": "© 2024 BIDUA Industries Private Limited. All rights reserved.",
-    "privacyPolicy": "Privacy Policy",
-    "privacyPolicyText": "Privacy Policy: We protect your personal information and never share it with third parties. Your data is encrypted and secure.",
-    "termsOfService": "Terms of Service",
-    "termsText": "Terms of Service: By purchasing BIDUA Beauty products, you agree to our quality guarantee and 30-day return policy. All sales are processed securely.",
-    "shippingInfo": "Shipping Info",
-    "shippingText": "Shipping Information: Free shipping on orders over ₹2000. Standard delivery 3-5 business days. Express delivery available. International shipping to 50+ countries."
-  },
-  "cart": {
-    "title": "Shopping Cart",
-    "subtitle": "Review your items before checkout",
-    "empty": "Your Cart is Empty",
-    "emptySubtitle": "Add some products to get started",
-    "continueShopping": "Continue Shopping",
-    "quantity": "Quantity:",
-    "orderSummary": "Order Summary",
-    "subtotal": "Subtotal",
-    "b2bSubtotal": "B2B Subtotal",
-    "shipping": "Shipping",
-    "total": "Total",
-    "proceedToCheckout": "Proceed to Checkout",
-    "secureCheckout": "✓ Secure Checkout",
-    "fastDelivery": "✓ Fast Delivery",
-    "returns": "✓ 30-Day Returns",
-    "b2bMinOrderWarning": "For B2B orders, a minimum total of {{minOrder}} is required. Current B2B total: {{currentTotal}}.",
-    "b2bMinOrderAlert": "Please ensure your B2B order meets the minimum value of {{minOrder}} to proceed."
-  },
-  "checkout": {
-    "title": "Secure Checkout",
-    "subtitle": "Complete your order with confidence",
-    "noItems": "No Items to Checkout",
-    "backToCart": "Back to Cart",
-    "customerInformation": "Customer Information",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "email": "Email Address",
-    "phone": "Phone Number",
-    "address": "Address",
-    "city": "City",
-    "state": "State",
-    "pincode": "PIN Code",
-    "paymentMethod": "Payment Method",
-    "creditCard": "Credit/Debit Card",
-    "secure": "SECURE",
-    "cashOnDelivery": "Cash on Delivery",
-    "comingSoon": "Coming Soon",
-    "placeOrder": "Place Secure Order",
-    "processingPayment": "Processing Payment...",
-    "securityFeatures": {
-      "title": "Secure Checkout",
-      "ssl": "✓ SSL encrypted payment processing",
-      "protection": "✓ Your personal information is protected",
-      "guarantee": "✓ 30-day money-back guarantee",
-      "delivery": "✓ Fast and reliable delivery"
-    },
-    "b2bMinOrderRedirect": "Your B2B order does not meet the minimum value of {{minOrder}}. Please adjust your cart.",
-    "b2bMinOrderAlert": "Your B2B order does not meet the minimum value of {{minOrder}}. Please adjust your cart."
-  },
-  "confirmation": {
-    "title": "Order Confirmed!",
-    "subtitle": "Thank you for your purchase! Your order has been successfully placed.",
-    "orderDetails": "Order Details",
-    "orderNumber": "Order Number:",
-    "customer": "Customer:",
-    "email": "Email:",
-    "phone": "Phone:",
-    "deliveryInformation": "Delivery Information",
-    "address": "Address:",
-    "estimatedDelivery": "Estimated Delivery:",
-    "shipping": "Shipping:",
-    "free": "FREE",
-    "orderStatus": "Order Status",
-    "orderPlaced": "Order Placed",
-    "processing": "Processing",
-    "shipped": "Shipped",
-    "delivered": "Delivered",
-    "whatsNext": "What's Next?",
-    "nextSteps": {
-      "confirmation": "✓ You'll receive an order confirmation email shortly",
-      "tracking": "✓ We'll send you tracking information once your order ships",
-      "packaging": "✓ Your LuxeGlow Face Cream will be carefully packaged and shipped within 24 hours",
-      "guarantee": "✓ Enjoy free shipping and our 30-day money-back guarantee"
-    },
-    "printReceipt": "Print Receipt",
-    "trackQueue": "Track My Queue",
-    "support": "Need help with your order?",
-    "email": "📧 support@luxeglow.com",
-    "phone": "📞 +91 555 123 4567"
-  },
   "productDetails": {
     "naturalGlowCream": {
       "natural": "Natural",
@@ -396,6 +298,87 @@
       "learnMore": "Learn More"
     }
   },
+  "cart": {
+    "title": "Shopping Cart",
+    "subtitle": "Review your items before checkout",
+    "empty": "Your Cart is Empty",
+    "emptySubtitle": "Add some products to get started",
+    "continueShopping": "Continue Shopping",
+    "quantity": "Quantity:",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "b2bSubtotal": "B2B Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "proceedToCheckout": "Proceed to Checkout",
+    "secureCheckout": "✓ Secure Checkout",
+    "fastDelivery": "✓ Fast Delivery",
+    "returns": "✓ 30-Day Returns",
+    "b2bMinOrderWarning": "For B2B orders, a minimum total of {{minOrder}} is required. Current B2B total: {{currentTotal}}.",
+    "b2bMinOrderAlert": "Please ensure your B2B order meets the minimum value of {{minOrder}} to proceed."
+  },
+  "checkout": {
+    "title": "Secure Checkout",
+    "subtitle": "Complete your order with confidence",
+    "noItems": "No Items to Checkout",
+    "backToCart": "Back to Cart",
+    "customerInformation": "Customer Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "address": "Address",
+    "city": "City",
+    "state": "State",
+    "pincode": "PIN Code",
+    "paymentMethod": "Payment Method",
+    "creditCard": "Credit/Debit Card",
+    "secure": "SECURE",
+    "cashOnDelivery": "Cash on Delivery",
+    "comingSoon": "Coming Soon",
+    "placeOrder": "Place Secure Order",
+    "processingPayment": "Processing Payment...",
+    "securityFeatures": {
+      "title": "Secure Checkout",
+      "ssl": "✓ SSL encrypted payment processing",
+      "protection": "✓ Your personal information is protected",
+      "guarantee": "✓ 30-day money-back guarantee",
+      "delivery": "✓ Fast and reliable delivery"
+    },
+    "b2bMinOrderRedirect": "Your B2B order does not meet the minimum value of {{minOrder}}. Please adjust your cart.",
+    "b2bMinOrderAlert": "Your B2B order does not meet the minimum value of {{minOrder}}. Please adjust your cart."
+  },
+  "confirmation": {
+    "title": "Order Confirmed!",
+    "subtitle": "Thank you for your purchase! Your order has been successfully placed.",
+    "orderDetails": "Order Details",
+    "orderNumber": "Order Number:",
+    "customer": "Customer:",
+    "email": "Email:",
+    "phone": "Phone:",
+    "deliveryInformation": "Delivery Information",
+    "address": "Address:",
+    "estimatedDelivery": "Estimated Delivery:",
+    "shipping": "Shipping:",
+    "free": "FREE",
+    "orderStatus": "Order Status",
+    "orderPlaced": "Order Placed",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "whatsNext": "What's Next?",
+    "nextSteps": {
+      "confirmation": "You'll receive an order confirmation email shortly",
+      "tracking": "We'll send you tracking information once your order ships",
+      "packaging": "Your BIDUA Radiance 15 will be carefully packaged and shipped within 24 hours",
+      "guarantee": "Enjoy free shipping and our 30-day money-back guarantee"
+    },
+    "printReceipt": "Print Receipt",
+    "trackQueue": "Track My Queue",
+    "support": "Need help with your order?",
+    "email": "support@biduabeauty.com",
+    "phone": "+91 555 123 4567"
+  },
   "costCalculator": {
     "title": "Cost Calculator Access",
     "subtitle": "Enter your credentials to access the production calculator",
@@ -406,21 +389,8 @@
     "enterPassword": "Enter password",
     "accessCalculator": "Access Calculator",
     "authenticating": "Authenticating...",
-    "invalidCredentials": "Invalid credentials. Please try again.",
     "authorizedPersonnel": "This calculator is for authorized personnel only",
-    "demoCredentials": "Demo Credentials",
-    "calculatorTitle": "Cream Production Calculator",
-    "calculatorSubtitle": "Calculate your cream production costs with recipe-based formulation. Define your base material and additives in proportion. Currency: INR (₹).",
-    "inputParameters": "Input Parameters",
-    "jarSize": "Jar Size (g)",
-    "howManyJars": "How many jars to make",
-    "recipeFormulation": "Recipe Formulation",
-    "howRecipeWorks": "How Recipe Works",
-    "baseMaterial": "Base Material",
-    "additives": "Additives",
-    "packagingOperations": "Packaging & Operations",
-    "sellingPrices": "Selling Prices",
-    "resetDefaults": "Reset to defaults"
+    "demoCredentials": "Demo Credentials"
   },
   "footer": {
     "description": "Premium skincare crafted with the finest ingredients and cutting-edge technology. Experience the luxury of perfect skin.",
@@ -429,11 +399,13 @@
     "email": "support@biduaindustries.com",
     "phone": "+91 80 4567 8900",
     "address": "Plot No. 456, Industrial Area, Phase 2, Electronic City, Bengaluru, Karnataka 560100",
-    "copyright": "© 2024 LuxeGlow. All rights reserved.",
     "copyright": "© 2024 BIDUA Beauty. All rights reserved. crafted with ❤️ in India",
     "privacyPolicy": "Privacy Policy",
+    "privacyPolicyText": "Privacy Policy: We protect your personal information and never share it with third parties. Your data is encrypted and secure.",
     "termsOfService": "Terms of Service",
-    "shippingInfo": "Shipping Info"
+    "termsText": "Terms of Service: By purchasing BIDUA Beauty products, you agree to our quality guarantee and 30-day return policy. All sales are processed securely.",
+    "shippingInfo": "Shipping Info",
+    "shippingText": "Shipping Information: Free shipping on orders over ₹2000. Standard delivery 3-5 business days. Express delivery available. International shipping to 50+ countries."
   },
   "common": {
     "loading": "Loading...",
@@ -580,6 +552,10 @@
       "escrow_pending": "Pending",
       "reversed": "Reversed"
     },
+    "loginRequired": {
+      "title": "Login Required",
+      "subtitle": "Please log in or sign up to view your Partner Wallet."
+    }
   },
   "queueTracker": {
     "title": "Stock & Queue Tracker",
@@ -618,10 +594,6 @@
       "b2cImpact": "When B2C customers buy products with your allocated serials, you earn profit share.",
       "profitSharing": "You receive 60% of profit + full cost reimbursement when your serials are sold."
     }
-    "loginRequired": {
-      "title": "Login Required",
-      "subtitle": "Please log in or sign up to view your Partner Wallet."
-    }
   },
   "userProfile": {
     "title": "User Profile",
@@ -640,8 +612,6 @@
     "joinBrpp": "Join or manage BRPP membership",
     "myQueue": "My Queue",
     "trackQueue": "Track your queued orders",
-    "brppProgram": "BRPP Program",
-    "joinBrpp": "Join or manage BRPP membership",
     "notLoggedIn": {
       "title": "Access Denied",
       "subtitle": "Please log in to view your user profile."

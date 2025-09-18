@@ -13,7 +13,7 @@ i18n
   // Initialize i18next
   .init({
     fallbackLng: 'en',
-    debug: false,
+    debug: true,
     
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
@@ -33,6 +33,14 @@ i18n
     
     // Default namespace
     defaultNS: 'translation',
+    
+    // Add retry and error handling
+    load: 'languageOnly',
+    cleanCode: true,
+    
+    react: {
+      useSuspense: false,
+    },
   });
 
 export default i18n;

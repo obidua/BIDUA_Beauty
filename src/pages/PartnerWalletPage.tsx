@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Wallet, DollarSign, Clock, CheckCircle, TrendingUp, LogIn } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const PartnerWalletPage = () => {
-  const { t } = useTranslation();
   const { isLoggedIn } = useAuth();
 
   // Static placeholder data
@@ -73,20 +71,20 @@ const PartnerWalletPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4 py-16">
         <div className="text-center max-w-md">
           <LogIn className="w-24 h-24 text-gray-600 mx-auto mb-8" />
-          <h1 className="text-4xl font-bold text-white mb-4">{t('partnerWallet.loginRequired.title')}</h1>
-          <p className="text-gray-400 mb-8 text-lg">{t('partnerWallet.loginRequired.subtitle')}</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Login Required</h1>
+          <p className="text-gray-400 mb-8 text-lg">Please log in to access your partner wallet</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               to="/login" 
               className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105"
             >
-              {t('login.loginButton')}
+              Login
             </Link>
             <Link 
               to="/signup" 
               className="border-2 border-amber-400/50 text-amber-400 px-8 py-4 rounded-full font-bold text-lg hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
             >
-              {t('signup.signupButton')}
+              Sign Up
             </Link>
           </div>
         </div>
@@ -109,7 +107,7 @@ const PartnerWalletPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('common.backToHome')}</span>
+          <span>Back to Home</span>
         </Link>
 
         {/* Page Header */}
@@ -118,10 +116,10 @@ const PartnerWalletPage = () => {
             <Wallet className="w-10 h-10 text-black" />
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            {t('partnerWallet.title')}
+            Partner Wallet
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            {t('partnerWallet.subtitle')}
+            Track your earnings and manage your partner account
           </p>
         </div>
 
@@ -129,27 +127,27 @@ const PartnerWalletPage = () => {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 text-center">
             <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-4" />
-            <p className="text-gray-300 text-sm">{t('partnerWallet.availableBalance')}</p>
+            <p className="text-gray-300 text-sm">Available Balance</p>
             <p className="text-white text-3xl font-bold">{formatPrice(availableBalance)}</p>
           </div>
           <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 text-center">
             <Clock className="w-10 h-10 text-amber-400 mx-auto mb-4" />
-            <p className="text-gray-300 text-sm">{t('partnerWallet.escrowPending')}</p>
+            <p className="text-gray-300 text-sm">Escrow Pending</p>
             <p className="text-white text-3xl font-bold">{formatPrice(escrowPending)}</p>
           </div>
           <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 text-center">
             <TrendingUp className="w-10 h-10 text-blue-400 mx-auto mb-4" />
-            <p className="text-gray-300 text-sm">{t('partnerWallet.totalRealized')}</p>
+            <p className="text-gray-300 text-sm">Total Realized</p>
             <p className="text-white text-3xl font-bold">{formatPrice(totalRealized)}</p>
           </div>
         </div>
 
         {/* Withdrawal Section */}
         <div className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border border-amber-400/30 rounded-3xl p-6 lg:p-8 text-center mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">{t('partnerWallet.withdrawFunds')}</h2>
-          <p className="text-amber-200 text-sm mb-6">{t('partnerWallet.withdrawDescription')}</p>
+          <h2 className="text-2xl font-bold text-white mb-4">Withdraw Funds</h2>
+          <p className="text-amber-200 text-sm mb-6">Request withdrawal of your available balance to your registered bank account</p>
           <button className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-amber-400/30 transition-all duration-300 transform hover:scale-105">
-            {t('partnerWallet.requestWithdrawal')}
+            Request Withdrawal
           </button>
         </div>
 
@@ -157,20 +155,20 @@ const PartnerWalletPage = () => {
         <div className="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 lg:p-8">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
             <CheckCircle className="w-6 h-6 mr-3 text-amber-400" />
-            {t('partnerWallet.realizationHistory')}
+            Realization History
           </h2>
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-700">
               <thead>
                 <tr>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.sku')}</th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.serialNo')}</th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.b2cPrice')}</th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.partnerCost')}</th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.profitShare')}</th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.costReimbursed')}</th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.status')}</th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">{t('partnerWallet.table.date')}</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">SKU</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Serial No</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">B2C Price</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Partner Cost</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Profit Share</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Cost Reimbursed</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Date</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-800">
@@ -186,7 +184,7 @@ const PartnerWalletPage = () => {
                       <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         realization.status === 'confirmed' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'
                       }`}>
-                        {t(`partnerWallet.status.${realization.status}`)}
+                        {realization.status === 'confirmed' ? 'Confirmed' : 'Escrow Pending'}
                       </span>
                     </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-300">

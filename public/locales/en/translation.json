@@ -144,21 +144,21 @@
     "fromReviews": "from 5,000+ reviews",
     "age": "Age",
     "testimonial1": {
-      "name": "Sarah Johnson",
+      "name": "Priya Sharma",
       "age": "34",
-      "location": "New York, USA",
+      "location": "Mumbai, India",
       "text": "I've tried countless face creams, but nothing compares to BIDUA Radiance 15. The saffron oil formula completely eliminated my dark circles in 30 days!"
     },
     "testimonial2": {
-      "name": "Maria Rodriguez",
+      "name": "Anjali Patel",
       "age": "42",
-      "location": "Los Angeles, USA",
+      "location": "Delhi, India",
       "text": "The natural ingredients work amazingly! My husband and I both use it. Even helped with my baby's diaper rash - so gentle and effective!"
     },
     "testimonial3": {
-      "name": "Emma Thompson",
+      "name": "Kavya Reddy",
       "age": "38",
-      "location": "London, UK",
+      "location": "Bangalore, India",
       "text": "100% recovery on my dark spots! I apply it thick at night as recommended and the fairness results are unbeatable. Worth every penny!"
     }
   },

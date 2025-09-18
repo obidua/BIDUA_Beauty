@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Lock, User, Eye, EyeOff } from 'lucide-react';
 import CreamCalculator from '../components/CreamCalculator';
 
 const CostCalculatorPage = () => {
-  const { t } = useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -49,7 +47,7 @@ const CostCalculatorPage = () => {
           className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 mb-8 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('costCalculator.backToHome')}</span>
+          <span>Back to Home</span>
         </Link>
 
         {/* Login Card */}
@@ -60,10 +58,10 @@ const CostCalculatorPage = () => {
               <Lock className="w-8 h-8 text-black" />
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">
-              {t('costCalculator.title')}
+              Cost Calculator
             </h1>
             <p className="text-gray-400 text-sm">
-              {t('costCalculator.subtitle')}
+              Access restricted to authorized personnel only
             </p>
           </div>
 
@@ -72,7 +70,7 @@ const CostCalculatorPage = () => {
             {/* Username Field */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('costCalculator.userId')}
+                User ID
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -81,7 +79,7 @@ const CostCalculatorPage = () => {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-4 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('costCalculator.enterUserId')}
+                  placeholder="Enter your user ID"
                   required
                 />
               </div>
@@ -90,7 +88,7 @@ const CostCalculatorPage = () => {
             {/* Password Field */}
             <div>
               <label className="block text-gray-300 font-medium mb-2">
-                {t('costCalculator.password')}
+                Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -99,7 +97,7 @@ const CostCalculatorPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-black/50 border border-gray-600 rounded-xl py-3 pl-12 pr-12 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 transition-colors duration-300"
-                  placeholder={t('costCalculator.enterPassword')}
+                  placeholder="Enter your password"
                   required
                 />
                 <button
@@ -128,10 +126,10 @@ const CostCalculatorPage = () => {
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">
                   <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-                  <span>{t('costCalculator.authenticating')}</span>
+                  <span>Authenticating...</span>
                 </div>
               ) : (
-                t('costCalculator.accessCalculator')
+                'Access Calculator'
               )}
             </button>
           </form>
@@ -139,14 +137,14 @@ const CostCalculatorPage = () => {
           {/* Footer Note */}
           <div className="mt-6 text-center">
             <p className="text-gray-400 text-xs">
-              {t('costCalculator.authorizedPersonnel')}
+              For authorized personnel only
             </p>
           </div>
         </div>
 
         {/* Demo Credentials Note */}
         <div className="mt-6 bg-amber-400/10 border border-amber-400/20 rounded-2xl p-4 text-center">
-          <p className="text-amber-400 text-sm font-medium mb-2">{t('costCalculator.demoCredentials')}</p>
+          <p className="text-amber-400 text-sm font-medium mb-2">Demo Credentials</p>
           <p className="text-gray-300 text-xs">
             User ID: <span className="font-mono bg-black/30 px-2 py-1 rounded">1234</span>
             <br />

@@ -21,7 +21,7 @@ const CheckoutPage = () => {
       alert(`B2B orders require a minimum order value of ${formatPrice(MIN_B2B_ORDER_VALUE)}. Please add more items to your cart.`);
       navigate('/cart');
     }
-  }, [hasB2bItems, isB2bMinOrderMet, navigate, t]);
+  }, [hasB2bItems, isB2bMinOrderMet, navigate]);
 
   // Static customer details
   const [customerDetails, setCustomerDetails] = useState({
